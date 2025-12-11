@@ -208,7 +208,7 @@
 
         .hero-content {
             position: absolute;
-            bottom: 28%;
+            bottom: 16%;
             left: 0;
             margin-top: 0;
             width: min(650px, 70%);
@@ -1638,12 +1638,35 @@
         .info-link {
             color: var(--primary);
             text-decoration: none;
-            transition: 0.2s;
+            transition: all 0.2s ease;
+            position: relative;
+            display: inline-block;
         }
-
+        
+        .info-link:hover {
+            text-decoration: none;
+        }
+        
+        .info-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        
+        .info-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
         .info-link:hover {
             color: #4facfe;
-            text-decoration: underline;
         }
 
         /* Animations */
@@ -1743,10 +1766,13 @@
         }
     </style>
 
+
 <style>
    .primary-content-section p{
     color: #fff;
    }
+
+   
 </style>
 </head>
 
@@ -2460,10 +2486,7 @@
             <div class="footer-main">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        ION EXCHANGE
-                        <span
-                            style="display:block;font-size:12px;letter-spacing:0.4em;color:#38e7ff;margin-top:6px;">REFRESHING
-                            THE PLANET</span>
+                        <img src="./assets/images/ion-logo.png" alt="" class="logo">
                     </div>
                     <p>Ion Exchange is a global leader in water treatment solutions, delivering innovative technologies
                         and sustainable practices for over 60 years.</p>

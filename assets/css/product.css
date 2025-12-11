@@ -358,6 +358,7 @@
   border: 1px solid var(--po-color-teal-100);
   transform: scale(1);
   opacity: 1;
+  border-color: rgba(2, 190, 180, 0.4);
 }
 
 .po-desktop-title {
@@ -369,7 +370,7 @@
 }
 
 .po-desktop-card.is-active .po-desktop-title {
-  color: var(--po-color-teal-800);
+  color: var(--primary);
   margin-top: 0;
 }
 
