@@ -100,9 +100,9 @@
 }
 
 .po-title {
-  font-size: 2.25rem;
+  font-size: 40px;
   font-weight: 700;
-  color: #289d60;
+  color: #289d60!important;
   margin-bottom: 1rem;
   line-height: 1.1;
   text-align: center;

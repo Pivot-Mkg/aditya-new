@@ -19,7 +19,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Blinker:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -1040,6 +1042,27 @@
             text-align: center;
             min-width: 180px;
             color: #6EE7B7;
+            transition: all 0.3s ease;
+            transform: translateY(0);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .foundation-stat {
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.10);
+            padding: 20px;
+            text-align: center;
+            min-width: 180px;
+            color: #6EE7B7;
+            transition: all 0.3s ease;
+            transform: translateY(0);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .foundation-stat:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
         }
 
         .foundation-stat strong {
@@ -1298,7 +1321,8 @@
 
         #scroll-container {
             margin-bottom: 50px;
-            padding-top: 120px;
+            padding-top:300px;
+            padding-bottom: 300px;
         }
 
         /* Track Record Section */
@@ -1642,11 +1666,11 @@
             position: relative;
             display: inline-block;
         }
-        
+
         .info-link:hover {
             text-decoration: none;
         }
-        
+
         .info-link::after {
             content: '';
             position: absolute;
@@ -1659,12 +1683,12 @@
             transform-origin: bottom right;
             transition: transform 0.3s ease-out;
         }
-        
+
         .info-link:hover::after {
             transform: scaleX(1);
             transform-origin: bottom left;
         }
-        
+
         .info-link:hover {
             color: #4facfe;
         }
@@ -1767,13 +1791,11 @@
     </style>
 
 
-<style>
-   .primary-content-section p{
-    color: #fff;
-   }
-
-   
-</style>
+    <style>
+        .primary-content-section p {
+            color: #fff;
+        }
+    </style>
 </head>
 
 <body>
@@ -1978,7 +2000,7 @@
         <div class="w-full relative z-20">
             <div class="container mx-auto px-4">
                 <div class="text-center pt-8 pb-4">
-                    <h2 class="text-3xl md:text-4xl font-bold text-teal-600 mb-2">Our Journey</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-teal-600 mb-2 po-title">Our Journey</h2>
                     <p class="text-gray-500">Pioneering water solutions for over 60 years</p>
                 </div>
             </div>
@@ -2009,7 +2031,7 @@
     <section class="primary-content-section">
         <div class="container">
             <div class="section-heading">
-                <h2 class="primary-section-header-title">
+                <h2 class="primary-section-header-title" style="color: #3edaff;">
                     Manufacturing Excellence
                 </h2>
                 <p class="primary-section-header-text">State-of-the-art facilities across the globe, committed to
@@ -2301,8 +2323,7 @@
                         </div>
                     </div>
                 </article>
-                <article class="sustain-item"
-                    data-image="./assets/images/water-recycle.png"
+                <article class="sustain-item" data-image="./assets/images/water-recycle.png"
                     data-badge="Circular Process">
                     <div class="item-head">
                         <div>
