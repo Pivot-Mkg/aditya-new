@@ -1,0 +1,3678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ion Exchange | Product Overview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="./assets/css/product.css">
+    <link rel="stylesheet" href="./assets/css/tabs-excellence.css">
+
+    <!-- Load Three.js and Globe.gl -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+    <script src="https://unpkg.com/globe.gl"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Blinker:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --primary: #289d60;
+            --primary-strong: #00a0d2;
+            --accent: #11d09e;
+            --deep-navy: #031225;
+            --navy-soft: #06253f;
+            --navy-card: #0b2f4b;
+            --text-dark: #0c1b32;
+            --text-muted: #5a6a79;
+            --border-soft: #d5e8ed;
+            --bg-gray: #f5fbff;
+            --shadow-soft: 0 35px 80px rgba(13, 63, 96, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Manrope', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #f8fdfd;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .logo img {
+            width: 60%;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(90vw) !important;
+            margin: 0 auto;
+        }
+
+        header {
+            position: absolute;
+            z-index: 99;
+            width: 100%;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(180deg, rgba(4, 18, 37, 0.2) 0%, rgba(3, 20, 36, 0.8) 100%), url('./assets/images/banner.png') center/cover no-repeat;
+            color: #fff;
+            overflow: hidden;
+            height: 90vh;
+        }
+
+        .hero-mask {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(105deg, rgba(7, 20, 35, 0.85), rgba(5, 20, 36, 0.55));
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            padding: 32px 0 140px;
+            padding-top: 0;
+            min-height: inherit;
+        }
+
+        .site-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 32px 0 40px;
+            position: relative;
+            z-index: 30;
+            transition: background 0.35s linear, padding 0.35s linear, box-shadow 0.35s linear, transform 0.35s linear;
+        }
+
+        body.nav-fixed .site-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: min(94%, calc(100% - 48px));
+            transform: translateY(8px);
+            padding: 10px 32px;
+            background: rgba(3, 15, 35, 0.6);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+            border-radius: 22px;
+            backdrop-filter: blur(16px);
+            z-index: 1000;
+        }
+
+        body.nav-fixed .hero-inner {
+            padding-top: 150px;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            font-weight: 700;
+            font-size: 17px;
+            letter-spacing: 0.08em;
+        }
+
+        .logo span:last-child {
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            font-size: 15px;
+        }
+
+        .nav-links a {
+            opacity: 0.85;
+            color: #fff;
+            text-decoration: none;
+            position: relative;
+            padding: 8px 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #2DD4BF;
+            /* Green color */
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus,
+        .nav-links a.active {
+            opacity: 1;
+            color: #2DD4BF;
+            /* Green color */
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a:focus::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 15px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.22);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(0, 167, 146, 0.35);
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 28%;
+            left: 0;
+            margin-top: 0;
+            width: min(650px, 70%);
+        }
+
+        .hero-content h1 {
+            font-size: clamp(42px, 8vw, 45px);
+            line-height: 1.15;
+            margin: 0 0 24px;
+            font-weight: 700;
+        }
+
+        .hero-content .highlight {
+            color: var(--primary);
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            max-width: 560px;
+            opacity: 0.85;
+            margin-bottom: 36px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .hero-actions .ghost {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .scroll-hint {
+            text-align: center;
+            font-size: 15px;
+            letter-spacing: 0.1em;
+            opacity: 0.7;
+            margin-top: 90px;
+            text-align: center;
+            font-size: 15px;
+            letter-spacing: 0.1em;
+            opacity: 0.7;
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            background: none;
+            border: none;
+            padding: 0;
+            color: inherit;
+        }
+
+        .scroll-hint:hover {
+            opacity: 1;
+        }
+
+        .scroll-hint:focus-visible {
+            outline: 2px solid rgba(255, 255, 255, 0.6);
+            outline-offset: 6px;
+        }
+
+        .scroll-hint svg {
+            display: block;
+            margin: 14px auto 0;
+        }
+
+        .scroll-hint svg path {
+            transform-box: fill-box;
+            transform-origin: center;
+            animation: arrow-slide 1.8s ease-in-out infinite;
+        }
+
+        @keyframes arrow-slide {
+            0% {
+                transform: translateY(-3px);
+                opacity: 0.4;
+            }
+
+            50% {
+                transform: translateY(6px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-3px);
+                opacity: 0.4;
+            }
+        }
+
+        .section {
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+            font-size: 40px;
+            letter-spacing: -0.02em;
+            font-weight: 600;
+            color: var(--primary);
+            width: 60%;
+            margin: 0 auto;
+            line-height: normal;
+            font-family: 'Manrope', sans-serif;
+        }
+
+        /* .section-heading h2 span {
+            color: var(--primary);
+        } */
+
+        .section-heading p {
+            color: var(--text-muted);
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            align-items: center;
+            margin-top: 70px;
+        }
+
+        .product-highlight {
+            background: #e8faf5;
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: 0 20px 40px rgba(0, 194, 180, 0.08);
+        }
+
+        .product-highlight h3 {
+            color: var(--primary);
+            margin: 0 0 12px;
+            font-size: 20px;
+        }
+
+        .product-highlight p {
+            margin: 0;
+            color: var(--text-dark);
+            font-size: 16px;
+        }
+
+        .link-inline {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 18px;
+            font-weight: 600;
+            font-size: 15px;
+            color: #10928c;
+        }
+
+        .link-inline svg {
+            margin-left: 6px;
+        }
+
+        .product-visual {
+            position: relative;
+            width: min(430px, 70vw);
+            aspect-ratio: 1 / 1;
+            margin: 0 auto;
+        }
+
+        .product-visual .orbit {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 3px dashed rgba(6, 171, 158, 0.7);
+            box-shadow: inset 0 0 50px rgba(0, 198, 178, 0.2);
+        }
+
+        .product-visual::before {
+            content: '';
+            position: absolute;
+            inset: 15%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(4, 206, 183, 0.4), rgba(255, 255, 255, 0));
+            filter: blur(6px);
+        }
+
+        .product-dot {
+            width: 16px;
+            height: 16px;
+            background: #05b8aa;
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0 0 0 6px rgba(0, 184, 169, 0.15);
+        }
+
+        .product-dot.small {
+            width: 11px;
+            height: 11px;
+            box-shadow: 0 0 0 4px rgba(0, 184, 169, 0.08);
+        }
+
+        .product-dot:nth-child(1) {
+            top: 5%;
+            right: 15%;
+        }
+
+        .product-dot:nth-child(2) {
+            top: 20%;
+            left: 12%;
+        }
+
+        .product-dot:nth-child(3) {
+            bottom: 12%;
+            right: 18%;
+        }
+
+        .product-dot:nth-child(4) {
+            bottom: 4%;
+            left: 22%;
+        }
+
+        .product-dot:nth-child(5) {
+            top: 55%;
+            left: -2%;
+        }
+
+        .product-list {
+            display: grid;
+            gap: 24px;
+        }
+
+        .product-list article h4 {
+            margin: 0 0 6px;
+            color: var(--primary);
+            font-size: 18px;
+        }
+
+        .product-list article p {
+            margin: 0;
+            color: var(--text-muted);
+        }
+
+        .stats-card {
+            margin: 80px auto 60px;
+            margin-top: 0;
+            margin-bottom: 0;
+            width: min(960px, 92vw);
+            background: linear-gradient(90deg, #0665c8, #15c3a9);
+            border-radius: 28px;
+            padding: 50px 70px;
+            color: #fff;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 32px;
+            margin-top: 38px;
+        }
+
+        .stats-grid h3 {
+            margin: 0;
+            font-size: 42px;
+        }
+
+        .stats-grid span {
+            font-size: 15px;
+            opacity: 0.85;
+            letter-spacing: 0.06em;
+        }
+
+        .track-record-section {
+            /* padding-top: 40px;
+            padding-bottom: 40px; */
+            position: absolute;
+            bottom: -240px;
+            width: 100%;
+        }
+
+        .track-record-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .track-record-card::before,
+        .track-record-card::after {
+            content: '';
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.35), transparent 70%);
+            filter: blur(6px);
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        .track-record-card::before {
+            top: -80px;
+            left: -120px;
+        }
+
+        .track-record-card::after {
+            bottom: -80px;
+            right: -100px;
+        }
+
+        .track-record-card>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .track-record-heading h2 {
+            margin: 0;
+            font-size: clamp(28px, 5vw, 34px);
+            color: #fff;
+        }
+
+        .track-record-heading p {
+            margin: 12px auto 0;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 17px;
+            max-width: 520px;
+        }
+
+        .track-record-grid {
+            margin-top: 32px;
+        }
+
+        .timeline-wrap {
+            margin-top: 80px;
+            position: relative;
+            padding: 40px 0 10px;
+        }
+
+        .timeline-svg {
+            width: 100%;
+            height: 260px;
+        }
+
+        .timeline-nodes {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            pointer-events: none;
+        }
+
+        .timeline-node {
+            width: 33%;
+            text-align: center;
+        }
+
+        .timeline-node h4 {
+            margin: 18px 0 8px;
+            font-size: 20px;
+        }
+
+        .timeline-node p {
+            color: var(--text-muted);
+            margin: 0 auto;
+            width: clamp(220px, 80%, 280px);
+        }
+
+        .timeline-year {
+            font-size: 32px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .timeline-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            margin: 18px auto 0;
+            background: #01c3b4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        .section-dark {
+            background: #050f1f;
+            color: #e6f6ff;
+            overflow: hidden;
+        }
+
+        .section-dark .section-heading h2,
+        .section-dark p {
+            color: #e5f5ff;
+        }
+
+        /* .section-dark::before,
+        .section-dark::after,
+        body::before,
+        body::after {
+            content: '';
+            position: absolute;
+            width: 480px;
+            height: 480px;
+            background: radial-gradient(circle, rgba(0, 225, 225, 0.25), rgba(3, 18, 37, 0));
+            filter: blur(8px);
+            z-index: 0;
+        } */
+
+        body::before {
+            top: 12%;
+            left: -120px;
+        }
+
+        body::after {
+            bottom: 5%;
+            right: -140px;
+        }
+
+        .section-dark::before {
+            top: 10%;
+            left: 8%;
+            opacity: 0.15;
+        }
+
+        .section-dark::after {
+            bottom: 0;
+            right: 5%;
+            opacity: 0.2;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin: 42px 0 50px;
+        }
+
+        .pill {
+            padding: 10px 22px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .pill.active {
+            background: rgba(3, 217, 191, 0.2);
+            border-color: rgba(3, 217, 191, 0.5);
+        }
+
+        .manufacturing-panels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 34px;
+        }
+
+        .map-card {
+            background: #091d34;
+            border-radius: 26px;
+            padding: 50px 40px;
+            min-height: 320px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-card span {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 0 8px rgba(2, 190, 180, 0.18);
+        }
+
+        .map-card span:nth-child(1) {
+            top: 25%;
+            left: 30%;
+        }
+
+        .map-card span:nth-child(2) {
+            top: 40%;
+            left: 45%;
+        }
+
+        .map-card span:nth-child(3) {
+            top: 55%;
+            left: 20%;
+        }
+
+        .map-card span:nth-child(4) {
+            top: 35%;
+            right: 18%;
+        }
+
+        .map-card span:nth-child(5) {
+            top: 60%;
+            right: 26%;
+        }
+
+        .location-card {
+            background: #08344a;
+            border-radius: 26px;
+            padding: 34px;
+            display: grid;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .location-card img {
+            border-radius: 18px;
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .location-card p {
+            margin: 0;
+            color: #b5c7d7;
+        }
+
+        .sustainability-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 60px;
+            align-items: center;
+        }
+
+        .sustain-visual {
+            background: #031625;
+            border-radius: 20px;
+            padding: 0;
+            position: relative;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sustain-visual img {
+            width: 100%;
+            height: 100%;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .sustain-visual::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(160deg, rgba(3, 12, 26, 0.4), rgba(3, 25, 32, 0.85));
+        }
+
+        .image-badge {
+            position: absolute;
+            bottom: 28px;
+            left: 28px;
+            padding: 10px 18px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.12);
+            color: #f0fffb;
+            font-size: 13px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            z-index: 9;
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .net-card {
+            /* border: 2px solid rgba(2, 190, 180, 0.3); */
+            border-radius: 20px;
+            /* padding: 22px 28px; */
+            /* margin-bottom: 30px; */
+            /* box-shadow: 0 15px 45px rgba(13, 213, 190, 0.09); */
+            /* background: #fbfffe; */
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .net-card.active {
+            transform: translateY(-4px);
+            box-shadow: 0 30px 45px rgba(1, 164, 148, 0.18);
+        }
+
+        .net-card .card-label {
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            color: #0fa4c1;
+            text-transform: uppercase;
+            margin: 0 0 8px;
+        }
+
+        .net-card a.cta-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            color: #028676;
+            margin-top: 5px;
+        }
+
+        .net-card a.cta-link svg {
+            transition: transform 0.3s ease;
+        }
+
+        .net-card a.cta-link:hover svg {
+            transform: translateX(4px);
+        }
+
+        .sustain-list {
+            /* border-top: 1px solid #d7e5ee; */
+            padding-top: 26px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .sustain-item {
+            position: relative;
+            text-align: left;
+            border: 1px solid transparent;
+            border-radius: 18px;
+            padding: 0 22px 10px;
+            background: transparent;
+            cursor: pointer;
+            transition: border 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sustain-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 22px;
+            right: 22px;
+            bottom: 6px;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(5, 116, 124, 0), rgba(5, 116, 124, 0.35), rgba(5, 116, 124, 0));
+            border-radius: 999px;
+        }
+
+        .sustain-item.active:not(:last-child)::after {
+            opacity: 0;
+        }
+
+        .sustain-item .item-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 18px;
+            padding: 20px 0;
+        }
+
+        .sustain-item .tag {
+            margin: 0 0 4px;
+            font-size: 12px;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: #029b94;
+            display: none;
+        }
+
+        .active h4 {
+            margin: 0;
+            color: #1BBEA3;
+            /* font-family: "Blauer Nue"; */
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 28px;
+            /* 87.5% */
+        }
+
+        .sustain-item .caret {
+            width: 12px;
+            height: 12px;
+            border-right: 2px solid #0f3a4b;
+            border-bottom: 2px solid #0f3a4b;
+            transform: rotate(45deg);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .sustain-item .item-body {
+            overflow: hidden;
+            max-height: 0;
+            padding-bottom: 0;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+        }
+
+        .sustain-item.active {
+            border-color: rgba(2, 190, 180, 0.4);
+            background: rgba(2, 190, 180, 0.08);
+            box-shadow: 0 12px 30px rgba(0, 158, 146, 0.14);
+        }
+
+        .sustain-item.active .caret {
+            transform: rotate(-135deg);
+            border-color: #01898f;
+        }
+
+        .sustain-item.active .item-body {
+            /* padding-bottom: 20px; */
+        }
+
+        .metrics-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .metric-card {
+            flex: 1 1 220px;
+            position: relative;
+            border-radius: 24px;
+            padding: 32px 24px;
+            text-align: center;
+            color: white;
+            font-size: 36px;
+            font-weight: 700;
+            overflow: hidden;
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 24px 40px rgba(6, 166, 196, 0.18);
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 1;
+            transition: transform 0.5s ease;
+        }
+
+        .metric-card:nth-child(1)::before {
+            background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        }
+
+        .metric-card:nth-child(2)::before {
+            background-image: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        }
+
+        .metric-card:nth-child(3)::before {
+            background-image: url('./assets/images/NET-ZERO-CARBON.png');
+        }
+
+        .metric-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2;
+        }
+
+        .metric-card:hover::before {
+            transform: scale(1.05);
+        }
+
+        .metric-card>* {
+            position: relative;
+            z-index: 3;
+        }
+
+        .metric-card span {
+            display: block;
+            margin-top: 8px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .foundation-card {
+            background: #072e3f;
+            border-radius: 36px;
+            padding: 50px;
+            color: #ebfdff;
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            flex-wrap: wrap;
+            border-radius: 16px;
+            border: 1px solid rgba(16, 185, 129, 0.20);
+            background: linear-gradient(90deg, rgba(5, 150, 105, 0.20) 0%, rgba(13, 148, 136, 0.20) 100%);
+            backdrop-filter: blur(2px);
+        }
+
+        .foundation-card>div:first-child {
+            flex: 0 0 30%;
+            max-width: 30%;
+        }
+
+        .foundation-logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: #3edaff;
+        }
+
+        .foundation-stats {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            flex: 0 0 40%;
+            max-width: 40%;
+            justify-content: center;
+        }
+
+        .foundation-stat {
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.10);
+            padding: 20px;
+            text-align: center;
+            min-width: 180px;
+            color: #6EE7B7;
+        }
+
+        .foundation-stat strong {
+            display: block;
+            font-size: 28px;
+            color: #fff;
+        }
+
+        .foundation-cta {
+            flex: 0 0 22%;
+            max-width: 22%;
+            text-align: right;
+        }
+
+        .foundation-cta .btn {
+            background: #e8fff4;
+            color: #0a6a4f;
+            box-shadow: none;
+            width: 90%;
+            justify-content: space-between;
+
+        }
+
+        footer {
+            position: relative;
+            background: #030f23;
+            color: #d7e0f0;
+            padding: 120px 0 20px;
+            padding-top: 0;
+            overflow: hidden;
+        }
+
+        .footer-main {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-logo {
+            font-weight: 700;
+            font-size: 22px;
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            margin: 0 0 18px;
+            color: rgba(255, 255, 255, 0.7);
+            color: #94A3B8;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+            /* 142.857% */
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-links a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .footer-list {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0 0;
+            display: grid;
+            gap: 10px;
+        }
+
+        .footer-list li {
+            color: rgba(255, 255, 255, 0.8);
+            color: #94A3B8;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+            /* 142.857% */
+        }
+
+        .footer-list a {
+            color: inherit;
+        }
+
+        .footer-main h4 {
+            margin: 0;
+            font-size: 16px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #f1fbff;
+        }
+
+        .footer-contact p {
+            margin: 0 0 10px;
+            color: rgba(255, 255, 255, 0.8);
+            color: #94A3B8;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+            margin-top: 16px;
+            /* 142.857% */
+        }
+
+        .newsletter {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .newsletter p {
+            color: #94A3B8;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+            /* 142.857% */
+        }
+
+        .newsletter .input-row {
+            display: flex;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 999px;
+            padding: 4px;
+            border-radius: 6px;
+            border: 1px solid #334155;
+            background: #1E293B;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .newsletter input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            padding: 10px 16px;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .newsletter input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .newsletter button {
+            border: none;
+            background: var(--primary);
+            color: #031225;
+            font-weight: 700;
+            border-radius: 999px;
+            padding: 0 18px;
+            cursor: pointer;
+            border-radius: 31px;
+            padding: 13px;
+        }
+
+        .footer-bottom {
+            position: relative;
+            margin-top: 60px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 980px) {
+            .site-nav {
+                flex-direction: column;
+                gap: 20px;
+                padding: 24px 0 28px;
+            }
+
+            body.nav-fixed .site-nav {
+                width: calc(100% - 32px);
+                padding: 16px;
+                transform: translateY(6px);
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .timeline-nodes {
+                position: static;
+                flex-direction: column;
+                gap: 50px;
+                margin-top: -30px;
+            }
+
+            .timeline-node {
+                width: 100%;
+            }
+
+            .foundation-card {
+                text-align: center;
+                flex-direction: column;
+            }
+
+            .foundation-card>div:first-child,
+            .foundation-stats,
+            .foundation-cta {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+
+            .foundation-cta {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero {
+                min-height: 720px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .stats-card {
+                padding: 40px 30px;
+            }
+
+            .location-card {
+                padding: 26px;
+            }
+
+            .foundation-card {
+                padding: 32px 28px;
+            }
+        }
+    </style>
+
+    <style>
+        /* milestone css */
+
+        /* Hide Scrollbar */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        #scroll-container {
+            margin-bottom: 50px;
+            padding-top: 120px;
+        }
+
+        /* Track Record Section */
+        .track-record-section {
+            padding: 50px 0;
+            /* position: relative; */
+            color: white;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .track-record-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .track-record-content {
+            /* max-width: 1200px; */
+            width: 90%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .track-record-header {
+            text-align: center;
+            /* margin-bottom: 60px; */
+        }
+
+        .track-record-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .track-record-header .highlight {
+            color: #2DD4BF;
+        }
+
+        .track-record-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .track-record-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            /* margin-top: 50px; */
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            background: rgba(45, 212, 191, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2DD4BF;
+            font-size: 24px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            font-weight: 500;
+        }
+
+        @media (max-width: 992px) {
+            .track-record-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .track-record-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .track-record-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Smooth Scroll Behavior */
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+
+        .text-slate-800 {
+            --tw-text-opacity: 1;
+            color: #289d60 !important;
+        }
+
+        /* STAGGERED REVEAL ANIMATIONS 
+           Parent class: .reveal-item
+           Trigger class: .reveal-visible
+        */
+        /* 1. Base State (Hidden) */
+        .reveal-item .year-label {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            /* Bounce effect */
+        }
+
+        .reveal-item .main-circle {
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .reveal-item .content-text {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        /* 2. Visible State (Triggered) */
+        .reveal-item.reveal-visible .year-label {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.1s;
+            /* Year comes first */
+        }
+
+        .reveal-item.reveal-visible .main-circle {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: 0.2s;
+            /* Circle pops in */
+        }
+
+        .reveal-item.reveal-visible .content-text {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+            /* Text fades up last */
+        }
+    </style>
+
+    <!-- globe css  -->
+    <style>
+        .globe-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- LEFT SIDE: GLOBE (65%) --- */
+        #globe-container-wrapper {
+            width: 65%;
+            height: 100%;
+            position: relative;
+            /* Background changed to light pastel red */
+            /* background-color: #ffcccb; */
+            overflow: hidden;
+        }
+
+        #globe-viz {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* --- RIGHT SIDE: INFO PANEL (35%) --- */
+        #info-panel {
+            width: 35%;
+            height: 100%;
+            background: #0F1B2D;
+            /* border-left: 1px solid #444; */
+            overflow-y: auto;
+            padding: 30px;
+            /* box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2); */
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+        }
+
+        .info-container {
+            /* background-color: ; */
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        /* Empty State */
+        #empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: var(--text-secondary);
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        #empty-state svg {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 20px;
+            opacity: 0.5;
+            color: var(--primary);
+        }
+
+        /* Selected Content */
+        #info-content {
+            display: none;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        /* Header Card Style */
+        .header-card {
+            /* Background Image with Dark Overlay */
+            background: linear-gradient(135deg, rgba(53, 59, 72, 0.85) 0%, rgba(45, 52, 54, 0.95) 100%), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Decorative green pill */
+        .status-pill {
+            display: inline-block;
+            background-color: #00b894;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        h2.panel-title {
+            margin: 0 0 8px 0;
+            color: var(--text-main);
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        h3.panel-company {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            /* Keep secondary color but ensure it's readable */
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        /* Details Section */
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 16px;
+            display: block;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .info-block {
+            margin-bottom: 20px;
+        }
+
+        .info-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            /* Greyed text */
+            font-weight: 600;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .info-data {
+            font-size: 1rem;
+            color: var(--text-main);
+            /* White text */
+            line-height: 1.5;
+            display: block;
+        }
+
+        .info-link {
+            color: var(--primary);
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .info-link:hover {
+            color: #4facfe;
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scene-tooltip {
+            background: rgba(45, 52, 54, 0.95) !important;
+            border: 1px solid #636e72 !important;
+            border-radius: 4px;
+            color: #fff !important;
+            padding: 6px 12px !important;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
+            font-weight: 600;
+            z-index: 10000;
+        }
+
+        /* --- RESPONSIVE: Stack content vertically on small screens --- */
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+                height: auto;
+                min-height: 100vh;
+                overflow-y: auto;
+            }
+
+            #globe-container-wrapper,
+            #info-panel {
+                width: 100%;
+            }
+
+            #globe-container-wrapper {
+                height: 55vh;
+                min-height: 320px;
+            }
+
+            #info-panel {
+                height: auto;
+                padding: 24px 20px 40px;
+                overflow-y: visible;
+            }
+
+            #empty-state {
+                height: auto;
+                padding: 40px 10px;
+            }
+
+            .header-card {
+                margin-bottom: 20px;
+            }
+
+            .info-container {
+                padding: 16px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            h2.panel-title {
+                font-size: 1.5rem;
+            }
+
+            h3.panel-company {
+                font-size: 1rem;
+            }
+
+            .info-label {
+                font-size: 0.8rem;
+            }
+
+            .info-data {
+                font-size: 0.95rem;
+            }
+
+            .status-pill {
+                font-size: 0.7rem;
+                padding: 4px 10px;
+            }
+        }
+    </style>
+
+<style>
+   .primary-content-section p{
+    color: #fff;
+   }
+</style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="site-nav">
+                <div class="logo">
+                    <img src="./assets/images/ion-logo.png" alt="" srcset="">
+                </div>
+                <div class="nav-links">
+                    <a href="#products">Solutions</a>
+                    <a href="#manufacturing">Manufacturing</a>
+                    <a href="#technology">Technology</a>
+                    <a href="#global">Global Presence</a>
+                    <a href="#sustainability">Sustainability</a>
+                    <a href="#about">About Us</a>
+                </div>
+                <button class="btn">Contact Us</button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-mask"></div>
+        <div class="hero-inner container">
+            <div class="hero-content">
+                <h1>
+                    Empowering a <span class="highlight">Sustainable Future</span> with End-to-End <span
+                        class="highlight">Water Treatment</span> Solutions
+                </h1>
+                <p>Ion Exchange delivers innovative, sustainable water solutions for industries across the globe.</p>
+                <div class="hero-actions">
+                    <button class="btn">Discover Our Solutions</button>
+                    <button class="btn ghost">Watch Our Story</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="scroll-hint">
+            <!-- Scroll to explore -->
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- <circle cx="18" cy="18" r="17" stroke="rgba(255,255,255,0.45)" stroke-width="0"
+                    fill="rgba(255,255,255,0.08)" /> -->
+                <path d="M12 16l6 6 6-6" stroke="rgba(255,255,255,0.8)" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </div>
+    </section>
+
+    <section id="product-offerings-section" class="po-section">
+        <div class="po-bg-animation">
+            <div class="gradient-circle circle-1"></div>
+            <div class="gradient-circle circle-2"></div>
+        </div>
+
+        <!-- Header (Aligned Left, 80% Width) -->
+        <div class="po-container po-header-wrapper">
+            <h1 class="po-title">
+                Product Offerings
+            </h1>
+            <p class="po-subtitle">
+                Comprehensive water treatment solutions tailored for every industry and application
+            </p>
+        </div>
+
+        <!-- Main Container (80% Width) -->
+        <div id="app-container" class="po-container po-content-area">
+
+            <!-- Mobile View -->
+            <div id="mobile-view" class="po-mobile-only po-flex-col po-gap-6 po-mobile-list">
+                <!-- Mobile items injected here via JS -->
+            </div>
+
+            <!-- Desktop View -->
+            <div id="desktop-view" class="po-desktop-only po-desktop-wrapper">
+
+                <!-- 1. Center Visual Layer -->
+                <div id="center-visual" class="po-center-visual">
+                    <div class="po-image-circle">
+                        <!-- Images injected here -->
+                        <div id="image-container" style="position: relative; width: 100%; height: 100%;"></div>
+                        <div class="po-img-overlay"></div>
+                    </div>
+                </div>
+
+                <!-- 2. SVG Layer -->
+                <div class="po-svg-layer">
+                    <svg class="po-orbit-svg" viewBox="0 0 800 800">
+                        <defs>
+                            <filter id="po-glow" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur" />
+                                    <feMergeNode in="SourceGraphic" />
+                                </feMerge>
+                            </filter>
+                        </defs>
+
+                        <!-- Orbit Path: Radius reduced to 230 -->
+                        <circle cx="400" cy="350" r="230" fill="none" stroke="#2DD4BF" stroke-width="2"
+                            stroke-dasharray="8 8" style="opacity: 0.6;" />
+
+                        <!-- Static Dots Group -->
+                        <g id="static-dots"></g>
+
+                        <!-- Bottom Anchor Dot: moved to 350 + 230 = 580 -->
+                        <circle cx="400" cy="580" r="4" fill="#cbd5e1" />
+
+                        <!-- Dynamic Trail Dots -->
+                        <circle id="trail-1" r="6" fill="#14b8a6" style="opacity: 0.4;" />
+                        <circle id="trail-2" r="6" fill="#14b8a6" style="opacity: 0.25;" />
+                        <circle id="trail-3" r="6" fill="#14b8a6" style="opacity: 0.1;" />
+
+                        <!-- Main Active Bead -->
+                        <circle id="active-bead" r="6" fill="#14b8a6" filter="url(#po-glow)" />
+                    </svg>
+                </div>
+
+                <!-- 3. Interactive Nodes Layer -->
+                <div id="nodes-container" class="po-nodes-layer">
+                    <!-- Nodes injected here -->
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Decorative Background -->
+        <!-- <div class="po-bg-blob po-blob-1"></div>
+        <div class="po-bg-blob po-blob-2"></div> -->
+        <section class="track-record-section" id="track-record"
+            style="background: linear-gradient(135deg, #0a2d3f 0%, #0a3a4a 100%);overflow: hidden;">
+            <div class="track-record-overlay"></div>
+            <div class="container" style="position: relative; z-index: 2;">
+                <div class="track-record-content">
+                    <div class="track-record-header">
+                        <h2>Proven <span class="highlight">Track Record</span></h2>
+                        <!-- <p>Numbers that speak to our experience, global reach, and unwavering commitment to excellence in total water management.</p> -->
+                    </div>
+                    <div class="track-record-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </div>
+                            <div class="stat-number" data-count="60">0</div>
+                            <div class="stat-label">YEARS EXPERIENCE</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-number" data-count="10000">0</div>
+                            <div class="stat-label">INSTALLATIONS</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="3" y="3" width="7" height="7"></rect>
+                                    <rect x="14" y="3" width="7" height="7"></rect>
+                                    <rect x="14" y="14" width="7" height="7"></rect>
+                                    <rect x="3" y="14" width="7" height="7"></rect>
+                                </svg>
+                            </div>
+                            <div class="stat-number" data-count="7">0</div>
+                            <div class="stat-label">FACILITIES</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-number" data-count="1500">0</div>
+                            <div class="stat-label">SERVICE ENGINEERS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+
+    <section class="bg-white text-slate-800 overflow-hidden h-screen flex flex-col position-relative">
+        <!-- Header -->
+        <div class="w-full relative z-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center pt-8 pb-4">
+                    <h2 class="text-3xl md:text-4xl font-bold text-teal-600 mb-2">Our Journey</h2>
+                    <p class="text-gray-500">Pioneering water solutions for over 60 years</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline Container -->
+        <div id="scroll-container"
+            class="w-full relative overflow-x-auto overflow-y-hidden hide-scrollbar h-full flex items-center touch-pan-x snap-x snap-mandatory">
+
+            <div id="timeline-content" class="relative min-w-max pb-20 pt-5 pl-8 pr-0 h-[700px]">
+
+                <!-- SVG Line -->
+                <svg id="timeline-svg" class="absolute top-0 left-0 h-full pointer-events-none z-0">
+                    <path id="wave-path" fill="none" stroke="#14b8a6" stroke-width="3" stroke-linecap="round"></path>
+                </svg>
+
+                <!-- Timeline Items Wrapper -->
+                <div id="items-container" class="flex relative z-10">
+                    <!-- Items will be injected here by JS -->
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="primary-content-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2 class="primary-section-header-title">
+                    Manufacturing Excellence
+                </h2>
+                <p class="primary-section-header-text">State-of-the-art facilities across the globe, committed to
+                    quality and sustainability</p>
+            </div>
+
+            <div class="tab-slider-container">
+                <button class="slider-arrow prev-arrow" aria-label="Previous tabs" style="transform: rotate(180);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="tab-wrapper">
+                    <ul class="tab-list">
+                        <li>
+                            <label for="me-tab-1" class="tab-toggle-btn tab-toggle-btn-active">Roha, Maharashtra</label>
+                        </li>
+                        <li>
+                            <label for="me-tab-2" class="tab-toggle-btn">Ankleshwar, Gujarat</label>
+                        </li>
+                        <li>
+                            <label for="me-tab-3" class="tab-toggle-btn">Verna, Goa</label>
+                        </li>
+                        <li>
+                            <label for="me-tab-4" class="tab-toggle-btn">Vashi, Maharashtra</label>
+                        </li>
+                        <li>
+                            <label for="me-tab-5" class="tab-toggle-btn">Patancheru, Telangana</label>
+                        </li>
+                        <li>
+                            <label for="me-tab-6" class="tab-toggle-btn">Patancheru, Telangana</label>
+                        </li>
+                        <li>
+                            <label for="me-tab-7" class="tab-toggle-btn">Patancheru, Telangana</label>
+                        </li>
+                    </ul>
+                </div>
+                <button class="slider-arrow next-arrow" aria-label="Next tabs">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- panel 1 -->
+            <div id="me-tab-1" class="manufacturing-excellence-tab-panel manufacturing-excellence-tab-panel-active">
+                <div class="content-wrapper">
+                    <div class="map-wrapper">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d15732951.583427688!2d69.615568!3d15.6953576!3m2!1i1024!2i768!4f13.1!2m1!1sion%20exchange%20google%20map!5e0!3m2!1sen!2sin!4v1765287005823!5m2!1sen!2sin"
+                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+                    <figure class="primary-card">
+                        <div class="img-wrapper">
+                            <img src="./assets/images/places-exce.png" alt="" class="primary-card-img">
+                        </div>
+                        <figcaption class="primary-card-caption">
+                            <div class="wrapper-1">
+                                <h1>Roha, Maharashtra, India</h1>
+                                <p>
+                                    State-of-the-art manufacturing with commitment to carbon neutrality. India's first
+                                    Net Zero certified water treatment facility, leading the industry in sustainable
+                                    manufacturing.
+                                </p>
+                            </div>
+                            <a href="#" class="primary-card-cta">Learn more</a>
+
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+            <!-- panel 2 -->
+            <div id="me-tab-2" class="manufacturing-excellence-tab-panel">
+                <div class="content-wrapper">
+                    <div class="map-wrapper">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d15732951.583427688!2d69.615568!3d15.6953576!3m2!1i1024!2i768!4f13.1!2m1!1sion%20exchange%20google%20map!5e0!3m2!1sen!2sin!4v1765287005823!5m2!1sen!2sin"
+                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+                    <figure class="primary-card">
+                        <div class="img-wrapper">
+                            <img src="./assets/images/places-exce.png" alt="" class="primary-card-img">
+                        </div>
+                        <figcaption class="primary-card-caption">
+                            <div class="wrapper-1">
+                                <h1>Roha, Maharashtra, India</h1>
+                                <p>
+                                    State-of-the-art manufacturing with commitment to carbon neutrality. India's first
+                                    Net Zero certified water treatment facility, leading the industry in sustainable
+                                    manufacturing.
+                                </p>
+                            </div>
+                            <a href="#" class="primary-card-cta">Learn more</a>
+
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+            <!-- panel 3 -->
+            <div id="me-tab-3" class="manufacturing-excellence-tab-panel">
+                <div class="content-wrapper">
+                    <div class="map-wrapper">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d15732951.583427688!2d69.615568!3d15.6953576!3m2!1i1024!2i768!4f13.1!2m1!1sion%20exchange%20google%20map!5e0!3m2!1sen!2sin!4v1765287005823!5m2!1sen!2sin"
+                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+                    <figure class="primary-card">
+                        <div class="img-wrapper">
+                            <img src="./assets/images/places-exce.png" alt="" class="primary-card-img">
+                        </div>
+                        <figcaption class="primary-card-caption">
+                            <div class="wrapper-1">
+                                <h1>Roha, Maharashtra, India</h1>
+                                <p>
+                                    State-of-the-art manufacturing with commitment to carbon neutrality. India's first
+                                    Net Zero certified water treatment facility, leading the industry in sustainable
+                                    manufacturing.
+                                </p>
+                            </div>
+                            <a href="#" class="primary-card-cta">Learn more</a>
+
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+            <!-- panel 4 -->
+            <div id="me-tab-4" class="manufacturing-excellence-tab-panel">
+                <div class="content-wrapper">
+                    <div class="map-wrapper">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d15732951.583427688!2d69.615568!3d15.6953576!3m2!1i1024!2i768!4f13.1!2m1!1sion%20exchange%20google%20map!5e0!3m2!1sen!2sin!4v1765287005823!5m2!1sen!2sin"
+                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+                    <figure class="primary-card">
+                        <div class="img-wrapper">
+                            <img src="./assets/images/places-exce.png" alt="" class="primary-card-img">
+                        </div>
+                        <figcaption class="primary-card-caption">
+                            <div class="wrapper-1">
+                                <h1>Roha, Maharashtra, India</h1>
+                                <p>
+                                    State-of-the-art manufacturing with commitment to carbon neutrality. India's first
+                                    Net Zero certified water treatment facility, leading the industry in sustainable
+                                    manufacturing.
+                                </p>
+                            </div>
+                            <a href="#" class="primary-card-cta">Learn more</a>
+
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+            <!-- panel 5 -->
+            <div id="me-tab-5" class="manufacturing-excellence-tab-panel">
+                <div class="content-wrapper">
+                    <div class="map-wrapper">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d15732951.583427688!2d69.615568!3d15.6953576!3m2!1i1024!2i768!4f13.1!2m1!1sion%20exchange%20google%20map!5e0!3m2!1sen!2sin!4v1765287005823!5m2!1sen!2sin"
+                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+                    <figure class="primary-card">
+                        <div class="img-wrapper">
+                            <img src="./assets/images/places-exce.png" alt="" class="primary-card-img">
+                        </div>
+                        <figcaption class="primary-card-caption">
+                            <div class="wrapper-1">
+                                <h1>Roha, Maharashtra, India</h1>
+                                <p>
+                                    State-of-the-art manufacturing with commitment to carbon neutrality. India's first
+                                    Net Zero certified water treatment facility, leading the industry in sustainable
+                                    manufacturing.
+                                </p>
+                            </div>
+                            <a href="#" class="primary-card-cta">Learn more</a>
+
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+            <!-- panel 6 -->
+            <div id="me-tab-6" class="manufacturing-excellence-tab-panel">
+                <div class="content-wrapper">
+                    <div class="map-wrapper">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d15732951.583427688!2d69.615568!3d15.6953576!3m2!1i1024!2i768!4f13.1!2m1!1sion%20exchange%20google%20map!5e0!3m2!1sen!2sin!4v1765287005823!5m2!1sen!2sin"
+                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+                    <figure class="primary-card">
+                        <div class="img-wrapper">
+                            <img src="./assets/images/places-exce.png" alt="" class="primary-card-img">
+                        </div>
+                        <figcaption class="primary-card-caption">
+                            <div class="wrapper-1">
+                                <h1>Roha, Maharashtra, India</h1>
+                                <p>
+                                    State-of-the-art manufacturing with commitment to carbon neutrality. India's first
+                                    Net Zero certified water treatment facility, leading the industry in sustainable
+                                    manufacturing.
+                                </p>
+                            </div>
+                            <a href="#" class="primary-card-cta">Learn more</a>
+
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+            <!-- panel 7 -->
+            <div id="me-tab-7" class="manufacturing-excellence-tab-panel">
+                <div class="content-wrapper">
+                    <div class="map-wrapper">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d15732951.583427688!2d69.615568!3d15.6953576!3m2!1i1024!2i768!4f13.1!2m1!1sion%20exchange%20google%20map!5e0!3m2!1sen!2sin!4v1765287005823!5m2!1sen!2sin"
+                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+                    <figure class="primary-card">
+                        <div class="img-wrapper">
+                            <img src="./assets/images/places-exce.png" alt="" class="primary-card-img">
+                        </div>
+                        <figcaption class="primary-card-caption">
+                            <div class="wrapper-1">
+                                <h1>Roha, Maharashtra, India</h1>
+                                <p>
+                                    State-of-the-art manufacturing with commitment to carbon neutrality. India's first
+                                    Net Zero certified water treatment facility, leading the industry in sustainable
+                                    manufacturing.
+                                </p>
+                            </div>
+                            <a href="#" class="primary-card-cta">Learn more</a>
+
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="sustainability">
+        <div class="section-heading">
+            <h2>Commitment to Sustainability</h2>
+            <!-- <p>From Net Zero operations to global community outreach, we're leading the way in sustainable water
+                treatment.</p> -->
+        </div>
+        <div class="container sustainability-grid">
+            <div class="sustain-visual">
+                <img id="sustain-image"
+                    src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80"
+                    alt="Sustainability highlight">
+                <div class="image-badge" id="sustain-image-label">Featured Initiative</div>
+            </div>
+            <div class="sustain-list" id="sustain-list">
+                <article class="sustain-item active"
+                    data-image="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80"
+                    data-badge="Featured Initiative">
+                    <div class="item-head">
+                        <div>
+                            <p class="tag">Featured Initiative</p>
+                            <h4>Net Zero Operations</h4>
+                        </div>
+                        <span class="caret"></span>
+                    </div>
+                    <div class="item-body">
+                        <div class="net-card">
+                            <p>Our Roha facility operates as a certified Net Zero plant, setting industry benchmarks for
+                                low-carbon manufacturing.</p>
+                            <a class="cta-link" href="#">
+                                Review certification
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 4l4 4-4 4" stroke="#0a8c81" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="sustain-item"
+                    data-image="./assets/images/water-recycle.png"
+                    data-badge="Circular Process">
+                    <div class="item-head">
+                        <div>
+                            <p class="tag">Circular Process</p>
+                            <h4>Water Recycling</h4>
+                        </div>
+                        <span class="caret"></span>
+                    </div>
+                    <div class="item-body">
+                        <div class="net-card">
+                            <p>Closed-loop systems help us recycle over 90% of process water, drastically reducing
+                                freshwater withdrawals.</p>
+                            <a class="cta-link" href="#">
+                                Explore recycling loop
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 4l4 4-4 4" stroke="#0a8c81" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="sustain-item"
+                    data-image="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?auto=format&fit=crop&w=900&q=80"
+                    data-badge="Clean Energy">
+                    <div class="item-head">
+                        <div>
+                            <p class="tag">Clean Energy</p>
+                            <h4>Renewable Energy</h4>
+                        </div>
+                        <span class="caret"></span>
+                    </div>
+                    <div class="item-body">
+                        <div class="net-card">
+                            <p>Solar and wind assets now power 60% of our energy demand, keeping operations resilient
+                                while cutting emissions.</p>
+                            <a class="cta-link" href="#">
+                                View energy mix
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 4l4 4-4 4" stroke="#0a8c81" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="sustain-item"
+                    data-image="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=900&q=80"
+                    data-badge="Community Impact">
+                    <div class="item-head">
+                        <div>
+                            <p class="tag">Community Impact</p>
+                            <h4>Ion Foundation CSR</h4>
+                        </div>
+                        <span class="caret"></span>
+                    </div>
+                    <div class="item-body">
+                        <div class="net-card">
+                            <p>Ion Foundation partners with local communities to deliver safe drinking water to 5M+
+                                people across India every year.</p>
+                            <a class="cta-link" href="#">
+                                Discover impact stories
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 4l4 4-4 4" stroke="#0a8c81" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="container metrics-row">
+            <div class="metric-card" data-count="90" data-suffix="%">
+                <div class="metric-value">0%</div>
+                <span>Water Recycled</span>
+            </div>
+            <div class="metric-card" data-count="60" data-suffix="%">
+                <div class="metric-value">0%</div>
+                <span>Renewable Energy</span>
+            </div>
+            <div class="metric-card" data-count="0">
+                <div class="metric-value">0</div>
+                <span>Net Carbon</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="globe">
+        <div class="section-heading">
+            <h2>Global <span>Expansion</span></h2>
+            <p>Connecting the world with cutting-edge water solutions and digital transformation.</p>
+        </div>
+        <section class="globe-section">
+
+            <!-- LEFT SIDE: GLOBE WRAPPER (65%) -->
+            <div id="globe-container-wrapper">
+                <div id="globe-viz"></div>
+            </div>
+
+            <!-- RIGHT SIDE: INFO PANEL (35%) -->
+            <div id="info-panel">
+
+                <!-- Default Empty State -->
+                <div id="empty-state">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path
+                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                        </path>
+                    </svg>
+                    <p><strong>Global Network</strong><br>Select a location to view facility details.</p>
+                </div>
+
+                <!-- Selected Content Container -->
+                <div id="info-content">
+                    <div class="header-card">
+                        <div class="status-pill">Active Facility</div>
+                        <h2 id="panel-title" class="panel-title">Country</h2>
+                        <h3 id="panel-company" class="panel-company">Company Name</h3>
+                    </div>
+                    <div class="info-container">
+                        <div class="section-title">Facility Details</div>
+                        <div id="panel-details">
+                            <!-- Dynamic Content injected here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+    <section class="section section-dark" id="about">
+        <div class="container foundation-card">
+            <div>
+                <div class="foundation-logo">ION EXCHANGE<br>FOUNDATION</div>
+                <p>Through Ion Foundation, we're committed to providing clean water access to underserved communities
+                    across India.</p>
+            </div>
+            <div class="foundation-stats">
+                <div class="foundation-stat">
+                    <strong>5M+</strong>
+                    Lives Impacted
+                </div>
+                <div class="foundation-stat">
+                    <strong>500+</strong>
+                    Villages Served
+                </div>
+            </div>
+            <div class="foundation-cta">
+                <button class="btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path
+                            d="M4.66667 10.8665C6.13333 10.8665 7.33333 9.64654 7.33333 8.16654C7.33333 7.3932 6.95333 6.65987 6.19333 6.03987C5.43333 5.41987 4.86 4.49987 4.66667 3.5332C4.47333 4.49987 3.90667 5.42654 3.14 6.03987C2.37333 6.6532 2 7.39987 2 8.16654C2 9.64654 3.2 10.8665 4.66667 10.8665Z"
+                            stroke="#047857" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M8.37339 4.39985C8.8319 3.66727 9.15693 2.85921 9.33339 2.01318C9.66673 3.67985 10.6667 5.27985 12.0001 6.34652C13.3334 7.41318 14.0001 8.67985 14.0001 10.0132C14.0039 10.9347 13.734 11.8366 13.2246 12.6046C12.7152 13.3725 11.9893 13.972 11.1388 14.3268C10.2884 14.6817 9.35167 14.7761 8.44751 14.598C7.54334 14.4199 6.71241 13.9774 6.06006 13.3265"
+                            stroke="#047857" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Our Impact
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                        aria-hidden="true" focusable="false">
+                        <path d="M3.33337 8H12.6667" stroke="#047857" stroke-width="1.33333" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M8 3.3335L12.6667 8.00016L8 12.6668" stroke="#047857" stroke-width="1.33333"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        ION EXCHANGE
+                        <span
+                            style="display:block;font-size:12px;letter-spacing:0.4em;color:#38e7ff;margin-top:6px;">REFRESHING
+                            THE PLANET</span>
+                    </div>
+                    <p>Ion Exchange is a global leader in water treatment solutions, delivering innovative technologies
+                        and sustainable practices for over 60 years.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn">in</a>
+                        <a href="#" aria-label="Twitter">tw</a>
+                        <a href="#" aria-label="YouTube">yt</a>
+                        <a href="#" aria-label="Instagram">ig</a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul class="footer-list">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#manufacturing">Services</a></li>
+                        <li><a href="#sustainability">Sustainability</a></li>
+                        <li><a href="#global">Careers</a></li>
+                        <li><a href="mailto:info@ionexchange.co.in">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>Ion House, Dr. E. Moses Road,<br>Mahalaxmi, Mumbai - 400011, India</p>
+                    <p>+91 22 2493 8189</p>
+                    <p>info@ionexchange.co.in</p>
+                </div>
+                <div class="newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe for the latest updates on water treatment innovations.</p>
+                    <div class="input-row">
+                        <input type="email" placeholder="Enter your email">
+                        <button aria-label="Submit email"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                viewBox="0 0 16 16" fill="none">
+                                <path d="M3.33337 8H12.6667" stroke="white" stroke-width="1.33333"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M8 3.33301L12.6667 7.99967L8 12.6663" stroke="white" stroke-width="1.33333"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2025 Ion Exchange (India) Ltd. All rights reserved.</span>
+                <div class="footer-links" style="display: flex; gap: 20px;">
+                    <a href="#" style="color: inherit; text-decoration: none;">Privacy Policy</a>
+                    <a href="#" style="color: inherit; text-decoration: none;">Terms of Service</a>
+                    <a href="#" style="color: inherit; text-decoration: none;">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        (function () {
+            const body = document.body;
+            const nav = document.querySelector('.site-nav');
+            const scrollHint = document.querySelector('.scroll-hint');
+            const hero = document.querySelector('.hero');
+
+            const toggleNav = () => {
+                if (!nav) return;
+                const shouldStick = window.scrollY > 120;
+                body.classList.toggle('nav-fixed', shouldStick);
+            };
+
+            window.addEventListener('scroll', toggleNav, { passive: true });
+            window.addEventListener('load', toggleNav);
+
+            if (scrollHint) {
+                let nextSection = document.querySelector('#products') || hero?.nextElementSibling;
+                if (!nextSection) {
+                    const sections = document.querySelectorAll('section');
+                    nextSection = sections.length > 1 ? sections[1] : null;
+                }
+
+                const scrollToNext = () => {
+                    if (!nextSection) return;
+                    nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                };
+
+                scrollHint.setAttribute('role', 'button');
+                scrollHint.setAttribute('tabindex', '0');
+                scrollHint.addEventListener('click', scrollToNext);
+                scrollHint.addEventListener('keypress', (event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        scrollToNext();
+                    }
+                });
+            }
+
+            const sustainItems = Array.from(document.querySelectorAll('.sustain-item'));
+            const sustainImage = document.getElementById('sustain-image');
+            const sustainBadge = document.getElementById('sustain-image-label');
+
+            if (sustainItems.length && sustainImage) {
+                const openItem = (item) => {
+                    sustainItems.forEach((entry) => {
+                        const body = entry.querySelector('.item-body');
+                        const isActive = entry === item;
+                        entry.classList.toggle('active', isActive);
+                        if (body) {
+                            body.style.maxHeight = isActive ? `${body.scrollHeight}px` : '0px';
+                        }
+                    });
+
+                    const imageSrc = item.dataset.image;
+                    const badgeText = item.dataset.badge || item.querySelector('.tag')?.textContent || '';
+                    if (imageSrc) {
+                        sustainImage.src = imageSrc;
+                    }
+                    if (sustainBadge) {
+                        sustainBadge.textContent = badgeText;
+                    }
+                };
+
+                sustainItems.forEach((item) => {
+                    item.addEventListener('click', () => openItem(item));
+                });
+
+                window.addEventListener('resize', () => {
+                    const activeItem = sustainItems.find((el) => el.classList.contains('active'));
+                    if (!activeItem) return;
+                    const activeBody = activeItem.querySelector('.item-body');
+                    if (activeBody) {
+                        activeBody.style.maxHeight = `${activeBody.scrollHeight}px`;
+                    }
+                });
+
+                openItem(sustainItems.find((item) => item.classList.contains('active')) || sustainItems[0]);
+            }
+        })();
+    </script>
+
+
+
+
+    <!-- product js -->
+    <script>
+        // --- Configuration & Data ---
+        // CHANGED: Radius reduced from 280 to 230
+        const RADIUS = 230;
+        const CENTER = { x: 400, y: 350 };
+
+        const PRODUCTS = [
+            {
+                id: 'ssd',
+                title: 'SSD',
+                description: 'High-purity chemicals for pharmaceutical, biotech and electronic industries.',
+                angle: 215,
+                image: './assets/images/product/SSD (Specialty & Fine Chemicals).png',
+                icon: 'beaker',
+                color: '#14b8a6'
+            },
+            {
+                id: 'ion',
+                title: 'Ion Exchange Resins',
+                description: 'Advanced resins for water purification, demineralization, and separation processes.',
+                angle: 180,
+                image: './assets/images/product/Ion Exchange Resins.jpg',
+                icon: 'filter',
+                color: '#0d9488'
+            },
+            {
+                id: 'membranes',
+                title: 'Membranes',
+                description: 'Cutting-edge membrane technologies for ultrafiltration and reverse osmosis.',
+                angle: 145,
+                image: './assets/images/product/Membranes.png',
+                icon: 'droplets',
+                color: '#0f766e'
+            },
+            {
+                id: 'services',
+                title: 'Services',
+                description: 'End-to-end project execution, O&M services, and technical support.',
+                angle: 35,
+                image: './assets/images/product/Services.jpg',
+                icon: 'settings',
+                color: '#0f766e'
+            },
+            {
+                id: 'home',
+                title: 'Zero B Home Solutions',
+                description: 'Innovative water purifiers and softeners for residential applications.',
+                angle: 0,
+                image: './assets/images/product/Zero B Home Solutions.png',
+                icon: 'home',
+                color: '#0d9488'
+            },
+            {
+                id: 'chemicals',
+                title: 'Chemicals',
+                description: 'Comprehensive range of water treatment chemicals for industrial applications.',
+                angle: -35,
+                image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=800',
+                icon: 'factory',
+                color: '#14b8a6'
+            }
+        ];
+
+        // --- State ---
+        let activeIndex = 0;
+        let isMobile = window.innerWidth < 1024;
+
+        // Spring Physics State
+        let spring = {
+            target: PRODUCTS[0].angle,
+            current: PRODUCTS[0].angle,
+            velocity: 0,
+            stiffness: 120,
+            damping: 18,
+            mass: 1
+        };
+
+        // --- DOM Elements ---
+        const els = {
+            mobileView: document.getElementById('mobile-view'),
+            desktopView: document.getElementById('desktop-view'),
+            staticDots: document.getElementById('static-dots'),
+            nodesContainer: document.getElementById('nodes-container'),
+            imageContainer: document.getElementById('image-container'),
+            centerVisual: document.getElementById('center-visual'),
+            activeBead: document.getElementById('active-bead'),
+            trails: [
+                document.getElementById('trail-1'),
+                document.getElementById('trail-2'),
+                document.getElementById('trail-3')
+            ]
+        };
+
+        // --- Helpers ---
+        const toRad = (deg) => (deg * Math.PI) / 180;
+        const getPos = (angle, radius) => ({
+            x: Math.cos(toRad(angle)) * radius,
+            y: Math.sin(toRad(angle)) * radius
+        });
+
+        // --- Initialization ---
+        function init() {
+            renderMobile();
+            renderDesktopStructure();
+            updateUI();
+
+            window.addEventListener('resize', () => {
+                const wasMobile = isMobile;
+                isMobile = window.innerWidth < 1024;
+                if (wasMobile !== isMobile) {
+                    toggleView();
+                }
+            });
+            // toggleView logic is handled by CSS media queries, but we keep JS state for optimization
+            toggleView();
+
+            // Start Animation Loop
+            requestAnimationFrame(animationLoop);
+        }
+
+        function toggleView() {
+            // Logic handled by CSS classes .po-desktop-only and .po-mobile-only
+            // We just update the state variable for logic that depends on it
+            isMobile = window.innerWidth < 1024;
+        }
+
+        // --- Rendering ---
+
+        function renderMobile() {
+            els.mobileView.innerHTML = PRODUCTS.map((item, idx) => `
+                <div id="mob-card-${idx}" class="po-mobile-card ${idx === activeIndex ? 'is-active' : ''}" onclick="setActive(${idx})">
+                    <div class="po-flex po-items-center po-gap-4" style="margin-bottom: 0.75rem;">
+                        <div class="po-icon-wrapper">
+                            <i data-lucide="${item.icon}" class="po-icon"></i>
+                        </div>
+                        <h3 class="po-card-title">${item.title}</h3>
+                    </div>
+                    <p class="po-card-desc">${item.description}</p>
+                    <div class="po-expandable-content">
+                        <img src="${item.image}" alt="${item.title}" class="po-card-image">
+                        <button class="po-learn-more">
+                            Learn more <i data-lucide="arrow-right" style="width:1rem; height:1rem; margin-left:0.25rem;"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+            lucide.createIcons();
+        }
+
+        function renderDesktopStructure() {
+            // 1. Static Dots
+            els.staticDots.innerHTML = PRODUCTS.map((item, idx) => {
+                const pos = getPos(item.angle, RADIUS);
+                return `
+                    <g id="dot-group-${idx}">
+                        <circle id="dot-glow-${idx}" cx="${CENTER.x + pos.x}" cy="${CENTER.y + pos.y}" r="6" fill="${item.color}" class="po-dot-glow" />
+                        <circle id="dot-core-${idx}" cx="${CENTER.x + pos.x}" cy="${CENTER.y + pos.y}" r="6" fill="#cbd5e1" stroke="white" stroke-width="2" class="po-dot-core" />
+                    </g>
+                `;
+            }).join('');
+
+            // 2. Images
+            els.imageContainer.innerHTML = PRODUCTS.map((item, idx) => `
+                <img id="img-${idx}" src="${item.image}" alt="${item.title}" class="po-center-img">
+            `).join('');
+
+            // 3. Text Nodes
+            els.nodesContainer.innerHTML = PRODUCTS.map((item, idx) => {
+                const pos = getPos(item.angle, RADIUS);
+                const isLeft = item.angle > 90;
+                // Use standard classes for alignment
+                const alignClass = isLeft ? 'po-align-right' : 'po-align-left';
+
+                return `
+                    <div class="po-node-wrapper" style="left: calc(50% + ${pos.x}px); top: calc(350px + ${pos.y}px);" onclick="setActive(${idx})">
+                        <div class="po-card-desktop-wrapper ${alignClass}">
+                            <div id="card-${idx}" class="po-desktop-card">
+                                <h3 id="title-${idx}" class="po-desktop-title">${item.title}</h3>
+                                <div id="desc-container-${idx}" class="po-desktop-desc-container">
+                                    <p class="po-card-desc" style="margin-bottom: 0.75rem;">${item.description}</p>
+                                    <span class="po-learn-more">
+                                        Learn more <i data-lucide="arrow-right" style="width:1rem; height:1rem; margin-left:0.25rem;"></i>
+                                    </span>
+                                </div>
+                                <span id="preview-${idx}" class="po-desktop-preview">${item.description}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            lucide.createIcons();
+        }
+
+        // --- Logic ---
+
+        window.setActive = function (idx) {
+            activeIndex = idx;
+            // Update Spring Target
+            spring.target = PRODUCTS[idx].angle;
+
+            if (isMobile) {
+                // For mobile, just re-render to update classes easily or manually toggle
+                // Re-rendering is cheap enough here and keeps code simple
+                renderMobile();
+            } else {
+                updateUI();
+            }
+        };
+
+        function updateUI() {
+            if (isMobile) return;
+
+            // Update Center Visual Gradient
+            // We use the CSS variable hex but need RGB for opacity, sticking to inline for this dynamic value
+            els.centerVisual.style.background = `radial-gradient(circle, ${PRODUCTS[activeIndex].color}20 0%, transparent 70%)`;
+
+            // Update Desktop Elements
+            PRODUCTS.forEach((item, idx) => {
+                const isActive = idx === activeIndex;
+
+                // 1. Dots
+                const glow = document.getElementById(`dot-glow-${idx}`);
+                const core = document.getElementById(`dot-core-${idx}`);
+                if (isActive) {
+                    glow.setAttribute('r', '20');
+                    glow.classList.add('is-active');
+                    core.setAttribute('r', '8');
+                    core.setAttribute('fill', item.color);
+                } else {
+                    glow.setAttribute('r', '6');
+                    glow.classList.remove('is-active');
+                    core.setAttribute('r', '6');
+                    core.setAttribute('fill', '#cbd5e1');
+                }
+
+                // 2. Images
+                const img = document.getElementById(`img-${idx}`);
+                if (isActive) {
+                    img.classList.add('is-visible');
+                } else {
+                    img.classList.remove('is-visible');
+                }
+
+                // 3. Cards
+                const card = document.getElementById(`card-${idx}`);
+
+                if (isActive) {
+                    card.classList.add('is-active');
+                } else {
+                    card.classList.remove('is-active');
+                }
+            });
+        }
+
+        // --- Animation Loop (Spring Physics) ---
+        let lastTime = 0;
+
+        function animationLoop(time) {
+            if (!lastTime) lastTime = time;
+            const dt = Math.min((time - lastTime) / 1000, 0.1);
+            lastTime = time;
+
+            // Physics Calculation
+            const force = (spring.target - spring.current) * spring.stiffness;
+            const dampingForce = spring.velocity * spring.damping;
+            const acceleration = (force - dampingForce) / spring.mass;
+
+            spring.velocity += acceleration * dt;
+            spring.current += spring.velocity * dt;
+
+            // Update Bead Position
+            const pos = getPos(spring.current, RADIUS);
+            els.activeBead.setAttribute('cx', CENTER.x + pos.x);
+            els.activeBead.setAttribute('cy', CENTER.y + pos.y);
+
+            // Update Trails
+            // Calculate direction for trail placement behind movement
+            const direction = spring.velocity > 0 ? -1 : 1;
+            const speedFactor = Math.min(Math.abs(spring.velocity) * 0.05, 10);
+
+            els.trails.forEach((trail, i) => {
+                const lagAngle = spring.current + (direction * (i + 1) * speedFactor * 0.5);
+                const trailPos = getPos(lagAngle, RADIUS);
+                trail.setAttribute('cx', CENTER.x + trailPos.x);
+                trail.setAttribute('cy', CENTER.y + trailPos.y);
+            });
+
+            requestAnimationFrame(animationLoop);
+        }
+
+        // Start
+        init();
+
+    </script>
+
+    <!-- milestone -->
+
+
+    <script>
+        // Data Configuration
+        const timelineData = [{
+            year: '1964',
+            title: 'Foundation & First Innovation',
+            description: "Pioneered India's first indigenous ion exchange resins, setting the foundation for water treatment excellence.",
+            icon: 'award',
+            position: 'low',
+            image: './assets/images/milestones/1964.jpg',
+        },
+        {
+            year: '1985',
+            title: 'Membrane Technology',
+            description: 'Introduced advanced membrane filtration systems, revolutionizing industrial water purification.',
+            icon: 'lightbulb',
+            position: 'high',
+            image: './assets/images/milestones/1985.png',
+        },
+        {
+            year: '1995',
+            title: 'Zero B Consumer Launch',
+            description: 'Launched Zero B brand, bringing cutting-edge water purification to Indian households.',
+            icon: 'cpu',
+            position: 'low',
+            image: './assets/images/milestones/1995.png',
+        },
+        {
+            year: '2005',
+            title: 'Global Expansion',
+            description: 'Expanded operations to Middle East and Asia, establishing international manufacturing presence.',
+            icon: 'globe',
+            position: 'high',
+            image: './assets/images/milestones/2005.jpg',
+        },
+        {
+            year: '2015',
+            title: 'Digital Integration',
+            description: 'Integrated IoT sensors for real-time water quality monitoring across all industrial plants.',
+            icon: 'zap',
+            position: 'low',
+            image: './assets/images/milestones/2015.jpg',
+        },
+        {
+            year: '2024',
+            title: 'Sustainable Future',
+            description: 'Achieved net-zero water waste in manufacturing and launched community clean water initiatives.',
+            icon: 'shield-check',
+            position: 'high',
+            image: './assets/images/milestones/2023.jpg',
+        },
+        ];
+        // Visual Configuration
+        const itemWidth = 350;
+        const paddingLeft = 32; // Matches pl-8 (2rem)
+        const startY = 350; // Center line
+        const stepUp = 60; // Slope: How much it rises per item (pixels)
+        const waveAmplitude = 70; // Wave height difference
+        // DOM Elements
+        const itemsContainer = document.getElementById('items-container');
+        const svgElement = document.getElementById('timeline-svg');
+        const wavePath = document.getElementById('wave-path');
+        const timelineContent = document.getElementById('timeline-content');
+        const scrollContainer = document.getElementById('scroll-container');
+        // Helper: Calculate Y position for center of node
+        function getNodeY(index, position) {
+            let slopeBase = startY - (index * stepUp);
+            if (index === 3) {
+                slopeBase += 80;
+            } else if (index >= 4) {
+                slopeBase += 180;
+            }
+            const offset = position === 'high' ? -waveAmplitude : waveAmplitude;
+            return slopeBase + offset;
+        }
+        // 1. Render Items
+        function renderItems() {
+            itemsContainer.innerHTML = '';
+            timelineData.forEach((item, index) => {
+                const nodeCenterY = getNodeY(index, item.position);
+                const topOffset = nodeCenterY - 152;
+                const itemEl = document.createElement('div');
+                itemEl.className = `relative flex-shrink-0 flex flex-col items-center group w-[350px] transition-transform duration-500 hover:scale-105 snap-center reveal-item`;
+                itemEl.style.marginTop = `${topOffset}px`;
+                // Added specific animation classes: year-label, main-circle, content-text
+                itemEl.innerHTML = `
+                    <!-- Year Label -->
+                    <div class="year-label text-2xl font-bold text-teal-600 mb-4 transition-transform duration-300 group-hover:-translate-y-2">
+                        ${item.year}
+                    </div>
+
+                    <!-- Main Circle Node -->
+                    <div class="main-circle relative z-10">
+                        <div class="w-32 h-32 rounded-full border-[3px] border-teal-400 bg-white shadow-sm flex items-center justify-center relative overflow-hidden">
+                            <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover rounded-full">
+                        </div>
+
+                        <!-- Small Icon Circle -->
+                        <div class="absolute -bottom-5 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center shadow-md border-4 border-white text-white">
+                            <i data-lucide="${item.icon}"></i>
+                        </div>
+                    </div>
+
+                    <!-- Text Content -->
+                    <div class="content-text mt-10 text-center px-6 max-w-[300px]">
+                        <h3 class="text-lg font-bold text-slate-800 mb-2 leading-tight">
+                            ${item.title}
+                        </h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">
+                            ${item.description}
+                        </p>
+                    </div>
+                `;
+                itemsContainer.appendChild(itemEl);
+            });
+            lucide.createIcons();
+            setupIntersectionObserver();
+        }
+        // 2. Setup Reveal Animation
+        function setupIntersectionObserver() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-visible');
+                    }
+                });
+            }, {
+                root: scrollContainer,
+                threshold: 0.4, // Increased threshold so animation triggers when item is more centrally visible
+                rootMargin: "0px -50px 0px -50px"
+            });
+            document.querySelectorAll('.reveal-item').forEach((item, index) => {
+                // Keep initial delay for the first view, but allow observer to handle scroll reveals
+                item.style.transitionDelay = `${index * 100}ms`;
+                observer.observe(item);
+            });
+        }
+        // 3. Generate SVG Path
+        function drawPath() {
+            let path = "";
+            timelineData.forEach((item, index) => {
+                const x = (index * itemWidth) + (itemWidth / 2) + paddingLeft;
+                const y = getNodeY(index, item.position);
+                if (index === 0) {
+                    path += `M ${0} ${y} L ${x} ${y}`;
+                } else {
+                    const prevItem = timelineData[index - 1];
+                    const prevX = ((index - 1) * itemWidth) + (itemWidth / 2) + paddingLeft;
+                    const prevY = getNodeY(index - 1, prevItem.position);
+                    const cp1x = prevX + (itemWidth / 2);
+                    const cp1y = prevY;
+                    const cp2x = prevX + (itemWidth / 2);
+                    const cp2y = y;
+                    path += ` C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${x} ${y}`;
+                }
+            });
+            wavePath.setAttribute('d', path);
+        }
+        // 4. Resize Handling
+        function updateLayout() {
+            const totalContentWidth = (timelineData.length * itemWidth) + paddingLeft;
+            svgElement.style.width = `${totalContentWidth}px`;
+            drawPath();
+        }
+        window.addEventListener('DOMContentLoaded', () => {
+            renderItems();
+            updateLayout();
+            window.addEventListener('resize', updateLayout);
+        });
+    </script>
+
+
+    <!-- globe  -->
+    <script>
+        // --- 1. CONFIGURATION & DATA ---
+
+        const rawLocations = [
+            {
+                "id": 1,
+                "title": "India",
+                "companyName": "Ion Exchange (India) Ltd.",
+                "address": "Ion House, Dr. E. Moses Road, Mahalaxmi, Mumbai - 400 011, India",
+                "tel": ["(91) 22 3989 0909"],
+                "fax": "(91) 22 2493 8737",
+                "emails": ["ieil@ionexchange.co.in"],
+                "latitude": 20.5937,
+                "longitude": 78.9629,
+                "url": "javascript:void(0)"
+            },
+            {
+                "id": 2,
+                "title": "Canada",
+                "companyName": "Ion Exchange LLC",
+                "address": "172 Pannahill Dr, Brampton Ontario, Canada, L6P 3T5",
+                "fax": "+1 905 915 5504",
+                "mobile": ["+1 416 712 3940"],
+                "contact_person_post": ["Head - Operations"],
+                "contact_person_name": ["Mr. Malvin Kalsi"],
+                "emails": ["export.sales@ionexchange.co.in"],
+                "latitude": 56.1304,
+                "longitude": -102.462,
+                "url": "javascript:void(0)"
+            },
+            {
+                "id": 3,
+                "title": "USA",
+                "companyName": "Ion Exchange LLC USA",
+                "address": "1 International Plaza Suite 550, Philadelphia, Pennsylvania-19113, USA",
+                "contact_person_post": ["Head - Operations"],
+                "contact_person_name": ["Mr. Malvin Kalsi"],
+                "mobile": ["+1 416 712 3940", "+1 612 963 0664"],
+                "emails": ["export.sales@ionexchange.co.in"],
+                "latitude": 37.0902,
+                "longitude": -95.734,
+                "url": "javascript:void(0)"
+            },
+            {
+                "id": 4,
+                "title": "Saudi Arabia",
+                "companyName": "Ion Exchange Arabia for Water",
+                "address": "2nd Floor, Sumou Tower, P.O. Box: 250 King Salman Road, Al Khobar – 31952, Saudi Arabia",
+                "contact_person_post": ["Head - Operations"],
+                "contact_person_name": ["Mr. P.S. Velan"],
+                "mobile": ["+966 591186276", "+966 13 887 8888", "+966 503883288"],
+                "emails": ["export.sales@ionexchange.co.in"],
+                "latitude": 23.8859,
+                "longitude": 45.0792,
+                "url": "javascript:void(0)"
+            },
+            {
+                "id": 5,
+                "title": "UAE",
+                "companyName": "Ion Exchange UAE Regional Office",
+                "address": "WN – 18/19, Hamriyah Free Zone, Phase – 1, Sharjah, PO Box – 49247, UAE",
+                "tel": ["+9716 5261606", "+9716 5261909"],
+                "contact_person_post": ["Country Manager"],
+                "contact_person_name": ["Mr. Muthu Kumar"],
+                "mobile": ["+971 556473461"],
+                "fax": "+9716 5261607",
+                "emails": ["export.sales@ionexchange.co.in"],
+                "latitude": 23.4241,
+                "longitude": 53.8478,
+                "url": "javascript:void(0)"
+            },
+            {
+                "id": 6,
+                "title": "Oman",
+                "companyName": "Ion Exchange & Company LLC, Oman",
+                "address": "POB 69, Ruwi, Muscat, 112, Sultanate of Oman",
+                "tel": ["+968-24697697", "+968-24696354"],
+                "contact_person_post": ["Country Manager"],
+                "contact_person_name": ["Mr. Pankaj Kumar Bhargava"],
+                "mobile": ["+968-94546035"],
+                "fax": "+968 2460 7724",
+                "emails": ["export.sales@ionexchange.co.in"],
+                "latitude": 21.4735,
+                "longitude": 58.9754,
+                "url": "javascript:void(0)"
+            },
+            {
+                "id": 7,
+                "title": "Kenya",
+                "companyName": "Ion Exchange East Africa Regional Office",
+                "address": "11, Westlands Road, Westland, Nairobi, Kenya",
+                "contact_person_post": ["Regional Manager"],
+                "contact_person_name": ["Mr. V. Srinivasa Chakravarthy"],
+                "mobile": ["+254-786649102", "+254715739052"],
+                "emails": ["export.sales@ionexchange.co.in"],
+                "latitude": 0.0236,
+                "longitude": 37.9062,
+                "url": "javascript:void(0)"
+            },
+            {
+                "id": 8,
+                "title": "Tanzania",
+                "companyName": "Ion Exchange (India) Ltd",
+                "address": "C/o SDS Technologies Ltd. P.O.Box - 21738, Dar es Salaam, Tanzania",
+                "contact_person_post": ["Country Manager"],
+                "contact_person_name": ["Mr. V. Srinivasa Chakravarthy"],
+                "mobile": ["+254786649102", "+255 757 833 461", "+255 687 884 244"],
+                "emails": ["export.sales@ionexchange.co.in"],
+                "latitude": 6.369,
+                "longitude": 34.8888,
+                "url": "javascript:void(0)"
+            },
+            {
+                "id": 9,
+                "title": "South Africa",
+                "companyName": "Ion Exchange Safic Pty Ltd.",
+                "address": "404 Southern Klipriviersberg Road Steeledale, Johannesburg, P.O. Box - 1754, Alberton-1450, South Africa",
+                "tel": ["+27 11 4064060"],
+                "fax": "+27 11 4064191",
+                "contact_person_post": ["CEO & Executive Director"],
+                "contact_person_name": ["Gourish Chakravorty"],
+                "mobile": ["+27 796941057"],
+                "emails": ["info@ionexchangesafic.co.za"],
+                "latitude": -29.559,
+                "longitude": 27.397,
+                "url": "https://ionexchangesafic.co.za/"
+            },
+            {
+                "id": 10,
+                "title": "Sri Lanka",
+                "companyName": "Sri Lanka Branch Office:",
+                "address": "No.19, De Soysa Road, Rawathawatta, Moratuwa, Sri Lanka",
+                "tel": ["+ 94 11 2645696"],
+                "contact_person_post": ["General Manager"],
+                "contact_person_name": ["Mr. M.J. Sheikh"],
+                "emails": ["export.sales@ionexchange.co.in"],
+                "latitude": 7.719,
+                "longitude": 80.197,
+                "url": "javascript:void(0)"
+            },
+            {
+                "id": 11,
+                "title": "Bangladesh",
+                "companyName": "Ion Exchange Environment Management (Bangladesh) Ltd.",
+                "address": "House No: 52, 2nd Floor, Road No: 15, Block # D, Banani, Dhaka-1213, Bangladesh",
+                "mobile": ["+8801911327955", "+8801713 033652"],
+                "contact_person_post": ["General Manager"],
+                "contact_person_name": ["Mr. M.J. Sheikh | Mr. Debasish Sarkar"],
+                "emails": ["export.sales@ionexchange.co.in"],
+                "latitude": 23.419,
+                "longitude": 89.147,
+                "url": "javascript:void(0)"
+            },
+            {
+                "id": 12,
+                "title": "Thailand",
+                "companyName": "Ion Exchange Asia Pacific (Thailand) Ltd. / Ion Exchange PSS Co. Ltd.",
+                "address": "731, PM Tower, 9th Floor, Asoke-Dindang Road, Bangkok - 10400, Thailand",
+                "tel": ["+66-2 246 7211"],
+                "fax": "+66-2 108 4353",
+                "contact_person_post": ["Country Manager"],
+                "contact_person_name": ["Gaurav Khullar"],
+                "mobile": ["+66-618179714"],
+                "emails": ["export.sales@ionexchange.co.in"],
+                "latitude": 17.193,
+                "longitude": 98.347,
+                "url": "https://ieiasiapacific.com/"
+            },
+            {
+                "id": 13,
+                "title": "Indonesia",
+                "companyName": "PT Ion Exchange Asia Pacific",
+                "address": "Jl. Industri Selatan IV Block EE2C, Kawasan Industri Jababeka 2, Cikarang, Jawa Barat, Bekasi-17550, Indonesia",
+                "tel": ["+62-21-89329088"],
+                "fax": "+62-21-89329053",
+                "contact_person_post": ["General Manager"],
+                "contact_person_name": ["Yogesh Purandare"],
+                "mobile": ["+62 815 14231957", "+62 815 13304988"],
+                "emails": ["sales@ieiasiapacific.com"],
+                "latitude": -6.334,
+                "longitude": 106.247,
+                "url": "https://ieiasiapacific.com/"
+            },
+            {
+                "id": 14,
+                "title": "Singapore",
+                "companyName": "Ion Exchange Asia Pacific Pte. Ltd.",
+                "address": "11, Irving Place, #09-02, Tai Seng Point-369551, Singapore",
+                "tel": ["+65 66734361"],
+                "fax": "+62-21-89329053",
+                "contact_person_post": ["Executive Director"],
+                "contact_person_name": ["Mr. Anil Manocha"],
+                "mobile": ["+6581579367"],
+                "emails": ["export.sales@ionexchange.co.in"],
+                "latitude": 1.29027,
+                "longitude": 103.851959,
+                "url": "https://ieiasiapacific.com/"
+            },
+            {
+                "id": 15,
+                "title": "Portugal",
+                "companyName": "Ion Exchange Europe, Lda",
+                "address": "Mapril, Lda, Rua dos Ourais, 1864475-357, Nogueira Maia, Portugal",
+                "contact_person_post": ["Head - Operations"],
+                "contact_person_name": ["Mr. Pedro Magalhaes / Mr. Debnath Sinha"],
+                "mobile": ["(+351) 220 304 300"],
+                "emails": ["mapril@mapril.com"],
+                "latitude": 41.1915,
+                "longitude": -8.715,
+                "url": "https://ionexchangeglobal.com/"
+            },
+            {
+                "id": 16,
+                "title": "Nepal",
+                "companyName": "Ion Exchange LLC",
+                "address": "Nepal",
+                "contact_person_post": ["Head - Operations"],
+                "contact_person_name": ["Mr. Dinesh Sadasivan"],
+                "latitude": 27.718911978368062,
+                "longitude": 85.32164166720031,
+                "url": "javascript:void(0)"
+            }
+        ];
+
+        // State for Selection
+        let selectedId = null;
+
+        // --- 2. UI HANDLERS ---
+        function updateInfoPanel(data) {
+            const emptyState = document.getElementById('empty-state');
+            const contentDiv = document.getElementById('info-content');
+            const detailsDiv = document.getElementById('panel-details');
+
+            // Switch view
+            emptyState.style.display = 'none';
+            contentDiv.style.display = 'block';
+
+            // Set Headers
+            document.getElementById('panel-title').innerText = data.title;
+            document.getElementById('panel-company').innerText = data.companyName || "";
+
+            // Build dynamic content
+            let html = '';
+
+            // Address
+            if (data.address) {
+                html += `
+                 <div class="info-block">
+                     <span class="info-label">Address</span>
+                     <span class="info-data">${data.address}</span>
+                 </div>`;
+            }
+
+            // Contact Person
+            if (data.contact_person_name && data.contact_person_name.length > 0) {
+                html += `<div class="info-block"><span class="info-label">Contact Person</span>`;
+                data.contact_person_name.forEach((name, index) => {
+                    const post = data.contact_person_post && data.contact_person_post[index] ? ` (${data.contact_person_post[index]})` : '';
+                    html += `<span class="info-data">${name}${post}</span>`;
+                });
+                html += `</div>`;
+            }
+
+            // Contact Details (Tel, Mobile, Fax)
+            let contactInfo = [];
+            if (data.tel) data.tel.forEach(t => contactInfo.push(`T: ${t}`));
+            if (data.mobile) data.mobile.forEach(m => contactInfo.push(`M: ${m}`));
+            if (data.fax) contactInfo.push(`F: ${data.fax}`);
+
+            if (contactInfo.length > 0) {
+                html += `
+                 <div class="info-block">
+                     <span class="info-label">Contact</span>
+                     ${contactInfo.map(item => `<span class="info-data">${item}</span>`).join('')}
+                 </div>`;
+            }
+
+            // Email
+            if (data.emails && data.emails.length > 0) {
+                html += `
+                 <div class="info-block">
+                     <span class="info-label">Email</span>
+                     ${data.emails.map(email => `<a href="mailto:${email}" class="info-link info-data">${email}</a>`).join('')}
+                 </div>`;
+            }
+
+            // Website
+            if (data.url && data.url !== 'javascript:void(0)') {
+                html += `
+                 <div class="info-block">
+                     <span class="info-label">Website</span>
+                     <a href="${data.url}" target="_blank" class="info-link info-data">${data.url}</a>
+                 </div>`;
+            }
+
+            detailsDiv.innerHTML = html;
+        }
+
+        // --- 3. GLOBE RENDERING ---
+
+        const globeContainer = document.getElementById('globe-viz');
+        const globeWrapper = document.getElementById('globe-container-wrapper');
+
+        const world = Globe()
+            (globeContainer)
+            .width(globeWrapper.clientWidth)
+            .height(globeWrapper.clientHeight)
+            .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
+            .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
+            // CHANGED: Set to transparent so the CSS background color shows through
+            .backgroundColor('rgba(0,0,0,0)')
+            .showAtmosphere(true)
+            .atmosphereColor('#3a7bd5')
+            .atmosphereAltitude(0.15)
+
+            // --- RINGS ---
+            // Only show rings for non-selected items (blinking effect)
+            .ringsData(rawLocations)
+            .ringColor(d => d.id === selectedId ? 'rgba(0,0,0,0)' : '#009adc')
+            .ringMaxRadius(2)
+            .ringPropagationSpeed(3)
+            .ringRepeatPeriod(800)
+
+            // --- POINTS ---
+            .pointsData(rawLocations)
+            .pointLat('latitude')
+            .pointLng('longitude')
+
+            // COLOR LOGIC: Orange if selected, Blue if not
+            .pointColor(d => d.id === selectedId ? '#ff9f00' : '#009adc')
+
+            // RADIUS LOGIC: Larger if selected
+            .pointRadius(d => d.id === selectedId ? 1.2 : 0.6)
+
+            // ALTITUDE LOGIC: Static high if selected, breathing if not
+            .pointAltitude(d => d.id === selectedId
+                ? 0.1
+                : Math.abs(Math.sin(Date.now() / 500)) * 0.02 + 0.01
+            )
+            .pointLabel('title')
+            .onPointClick((d, event) => {
+                // 1. Update Selection State
+                selectedId = d.id;
+
+                // 2. Trigger UI Update
+                updateInfoPanel(d);
+
+                // 3. Refresh Globe Visuals (to apply new colors/sizes)
+                world.pointsData(rawLocations);
+                world.ringsData(rawLocations);
+
+                // 4. Camera Focus
+                world.pointOfView({ lat: d.latitude, lng: d.longitude, altitude: 1.5 }, 1000);
+
+                // 5. ROTATION LOGIC: Pause for 30 seconds
+                controls.autoRotate = false;
+                clearTimeout(autoRotateTimer); // Clear any existing resume timers
+
+                // Set a timer to resume after 30 seconds
+                autoRotateTimer = setTimeout(() => {
+                    controls.autoRotate = true;
+                }, 30000); // 30 seconds
+            });
+
+        // Add Clouds Sphere
+        const CLOUDS_IMG_URL = 'https://unpkg.com/three-globe/example/img/clouds.png';
+        const CLOUDS_ALT = 0.004;
+        const CLOUDS_ROTATION_SPEED = -0.006;
+
+        world.onGlobeReady(() => {
+            new THREE.TextureLoader().load(CLOUDS_IMG_URL, cloudsTexture => {
+                const clouds = new THREE.Mesh(
+                    new THREE.SphereGeometry(world.getGlobeRadius() * (1 + CLOUDS_ALT), 75, 75),
+                    new THREE.MeshPhongMaterial({ map: cloudsTexture, transparent: true })
+                );
+                world.scene().add(clouds);
+
+                (function rotateClouds() {
+                    clouds.rotation.y += CLOUDS_ROTATION_SPEED * Math.PI / 180;
+                    requestAnimationFrame(rotateClouds);
+                })();
+            });
+
+            const globeMaterial = world.globeMaterial();
+            globeMaterial.bumpScale = 10;
+            new THREE.TextureLoader().load('https://unpkg.com/three-globe/example/img/earth-water.png', texture => {
+                globeMaterial.specularMap = texture;
+                globeMaterial.specular = new THREE.Color('grey');
+                globeMaterial.shininess = 15;
+            });
+
+            const directionalLight = world.scene().children.find(obj3d => obj3d.type === 'DirectionalLight');
+            if (directionalLight) {
+                directionalLight.position.set(1, 1, 1);
+                directionalLight.intensity = 1.5;
+            }
+        });
+
+        // --- 4. ANIMATION & CONTROLS ---
+
+        const controls = world.controls();
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 0.5;
+
+        // Standard Interaction Resume (Drag)
+        let autoRotateTimer;
+
+        controls.addEventListener('start', () => {
+            controls.autoRotate = false;
+            clearTimeout(autoRotateTimer);
+        });
+
+        controls.addEventListener('end', () => {
+            clearTimeout(autoRotateTimer);
+            // Default behavior for manual drag is 4s resume
+            // Note: If a point was just clicked, the 30s timer from onPointClick will override this if it's set later, 
+            // but we want to ensure dragging doesn't kill the 30s wait if currently selecting. 
+            // Simplified: Dragging resets to short timer. Clicking sets long timer.
+            autoRotateTimer = setTimeout(() => {
+                controls.autoRotate = true;
+            }, 4000);
+        });
+
+        // IMPORTANT: Resize based on the Wrapper, not Window
+        window.addEventListener('resize', () => {
+            world.width(globeWrapper.clientWidth);
+            world.height(globeWrapper.clientHeight);
+        });
+
+        // --- 5. DEFAULT STATE (Select India) ---
+        // automatically select India on load
+        const defaultLocation = rawLocations.find(loc => loc.title === "India");
+        if (defaultLocation) {
+            // Set initial state
+            selectedId = defaultLocation.id;
+
+            // Populate
+            updateInfoPanel(defaultLocation);
+
+            // Orient
+            world.pointOfView({
+                lat: defaultLocation.latitude,
+                lng: defaultLocation.longitude,
+                altitude: 1.7
+            });
+
+            // Trigger visual refresh for the initial selection color
+            // Need small timeout to ensure globe initialized
+            setTimeout(() => {
+                world.pointsData(rawLocations);
+                world.ringsData(rawLocations);
+
+                // Initial pause logic
+                controls.autoRotate = false;
+                setTimeout(() => controls.autoRotate = true, 30000);
+            }, 500);
+        }
+
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+    <!-- excellenece tabs -->
+    <script>
+        $(document).ready(function () {
+            // Initialize tab slider
+            const tabSlider = $('.tab-list');
+            const tabItems = $('.tab-list li');
+            const tabWidth = tabItems.outerWidth(true);
+            const visibleTabs = 4; // Number of tabs to show at once
+            const tabContainer = $('.tab-wrapper');
+            let currentPosition = 0;
+            const maxPosition = (tabItems.length - visibleTabs) * tabWidth;
+
+            // Initialize tabs
+            $(".manufacturing-excellence-tab-panel").hide();
+            $(".manufacturing-excellence-tab-panel-active").show();
+
+            // Tab click handler
+            $(".tab-toggle-btn").click(function () {
+                $(".tab-toggle-btn-active").removeClass("tab-toggle-btn-active");
+                $(this).addClass("tab-toggle-btn-active");
+
+                // Show the corresponding panel
+                const targetId = $(this).attr("for");
+                $(".manufacturing-excellence-tab-panel").hide();
+                $(`#${targetId}`).fadeIn();
+
+                // Scroll to the active tab if it's not fully visible
+                const tabPosition = $(this).parent().position().left;
+                const containerWidth = tabContainer.width();
+                const tabRightEdge = tabPosition + $(this).outerWidth();
+
+                if (tabRightEdge > containerWidth) {
+                    const scrollAmount = tabRightEdge - containerWidth + 20; // 20px padding
+                    tabSlider.scrollLeft(tabSlider.scrollLeft() + scrollAmount);
+                } else if (tabPosition < 0) {
+                    const scrollAmount = tabPosition - 20; // 20px padding
+                    tabSlider.scrollLeft(tabSlider.scrollLeft() + scrollAmount);
+                }
+            });
+
+            // Navigation arrows
+            $('.prev-arrow').click(function () {
+                const scrollAmount = -tabWidth * 2; // Scroll by 2 tabs
+                tabSlider.animate({ scrollLeft: `+=${scrollAmount}` }, 300);
+            });
+
+            $('.next-arrow').click(function () {
+                const scrollAmount = tabWidth * 2; // Scroll by 2 tabs
+                tabSlider.animate({ scrollLeft: `+=${scrollAmount}` }, 300);
+            });
+
+            // Update arrow visibility based on scroll position
+            const updateArrows = () => {
+                const scrollLeft = tabSlider.scrollLeft();
+                $('.prev-arrow').toggleClass('disabled', scrollLeft === 0);
+                $('.next-arrow').toggleClass('disabled', scrollLeft >= maxPosition - 10); // 10px tolerance
+            };
+
+            tabSlider.on('scroll', updateArrows);
+            updateArrows();
+        });
+
+        // Initialize animations when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            // Function to format number with commas
+            function numberWithCommas(x) {
+                return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+
+            // Function to animate counting
+            function animateValue(element, start, end, duration, suffix = '') {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    const value = Math.floor(progress * (end - start) + start);
+                    element.textContent = numberWithCommas(value) + suffix;
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+
+            // Track Record Counting Animation
+            const statNumbers = document.querySelectorAll('.stat-number');
+
+            // Intersection Observer to trigger animation when section is in view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        statNumbers.forEach(stat => {
+                            const target = parseInt(stat.getAttribute('data-count'));
+                            const duration = 2000; // 2 seconds
+                            animateValue(stat, 0, target, duration);
+                        });
+                        // Unobserve after animation to prevent re-triggering
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 }); // Trigger when 50% of the section is visible
+
+            // Start observing the track record section
+            const trackRecordSection = document.querySelector('.track-record-section');
+            if (trackRecordSection) {
+                observer.observe(trackRecordSection);
+            }
+
+            // Metric Cards Counting Animation
+            const metricCards = document.querySelectorAll('.metric-card');
+
+            const metricObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const card = entry.target;
+                        const valueElement = card.querySelector('.metric-value');
+                        const target = parseInt(card.getAttribute('data-count'));
+                        const suffix = card.getAttribute('data-suffix') || '';
+                        const duration = 2000; // 2 seconds
+
+                        // Animate the value
+                        animateValue(valueElement, 0, target, duration, suffix);
+
+                        // Stop observing this card
+                        observer.unobserve(card);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            // Start observing all metric cards
+            metricCards.forEach(card => {
+                metricObserver.observe(card);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

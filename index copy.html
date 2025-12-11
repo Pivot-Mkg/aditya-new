@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ion Exchange | Product Overview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2&copy;family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #02beb4;
+            --primary-strong: #00a0d2;
+            --accent: #11d09e;
+            --deep-navy: #031225;
+            --navy-soft: #06253f;
+            --navy-card: #0b2f4b;
+            --text-dark: #0c1b32;
+            --text-muted: #5a6a79;
+            --border-soft: #d5e8ed;
+            --bg-gray: #f5fbff;
+            --shadow-soft: 0 35px 80px rgba(13, 63, 96, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Manrope', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #f8fdfd;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .logo img {
+            width: 60%;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(90vw);
+            margin: 0 auto;
+        }
+
+        header {
+            position: relative;
+            min-height: 800px;
+            background: linear-gradient(180deg, rgba(4, 18, 37, 0.2) 0%, rgba(3, 20, 36, 0.8) 100%), url('./assets/images/banner.png') center/cover no-repeat;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .hero-mask {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(105deg, rgba(7, 20, 35, 0.85), rgba(5, 20, 36, 0.55));
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            padding: 32px 0 140px;
+            padding-top: 0;
+        }
+
+        .site-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 32px 0 40px;
+            position: relative;
+            z-index: 30;
+            transition: background 0.35s linear, padding 0.35s linear, box-shadow 0.35s linear, transform 0.35s linear;
+        }
+
+        body.nav-fixed .site-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: min(1200px, calc(100% - 48px));
+            transform: translateY(8px);
+            padding: 18px 32px;
+            background: rgba(3, 15, 35, 0.95);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+            border-radius: 22px;
+            backdrop-filter: blur(16px);
+        }
+
+        body.nav-fixed .hero-inner {
+            padding-top: 150px;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            font-weight: 700;
+            font-size: 17px;
+            letter-spacing: 0.08em;
+        }
+
+        .logo span:last-child {
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            font-size: 15px;
+        }
+
+        .nav-links a {
+            opacity: 0.85;
+            transition: opacity 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 15px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.22);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(0, 167, 146, 0.35);
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 28%;
+            left: 0;
+            margin-top: 0;
+            width: min(650px, 70%);
+        }
+
+        .hero-content h1 {
+            font-size: clamp(42px, 8vw, 45);
+            line-height: 1.15;
+            margin: 0 0 24px;
+            font-weight: 700;
+        }
+
+        .hero-content .highlight {
+            color: var(--primary);
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            max-width: 560px;
+            opacity: 0.85;
+            margin-bottom: 36px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .hero-actions .ghost {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .scroll-hint {
+            margin-top: 90px;
+            text-align: center;
+            font-size: 15px;
+            letter-spacing: 0.1em;
+            opacity: 0.7;
+        }
+
+        .scroll-hint svg {
+            display: block;
+            margin: 14px auto 0;
+        }
+
+        .section {
+            padding: 110px 0;
+            position: relative;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+            font-size: 40px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-heading h2 span {
+            color: var(--primary);
+        }
+
+        .section-heading p {
+            color: var(--text-muted);
+            font-size: 18px;
+            margin-top: 14px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            align-items: center;
+            margin-top: 70px;
+        }
+
+        .product-highlight {
+            background: #e8faf5;
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: 0 20px 40px rgba(0, 194, 180, 0.08);
+        }
+
+        .product-highlight h3 {
+            color: var(--primary);
+            margin: 0 0 12px;
+            font-size: 20px;
+        }
+
+        .product-highlight p {
+            margin: 0;
+            color: var(--text-dark);
+            font-size: 16px;
+        }
+
+        .link-inline {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 18px;
+            font-weight: 600;
+            font-size: 15px;
+            color: #10928c;
+        }
+
+        .link-inline svg {
+            margin-left: 6px;
+        }
+
+        .product-visual {
+            position: relative;
+            width: min(430px, 70vw);
+            aspect-ratio: 1 / 1;
+            margin: 0 auto;
+        }
+
+        .product-visual .orbit {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 3px dashed rgba(6, 171, 158, 0.7);
+            box-shadow: inset 0 0 50px rgba(0, 198, 178, 0.2);
+        }
+
+        .product-visual::before {
+            content: '';
+            position: absolute;
+            inset: 15%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(4, 206, 183, 0.4), rgba(255, 255, 255, 0));
+            filter: blur(6px);
+        }
+
+        .product-dot {
+            width: 16px;
+            height: 16px;
+            background: #05b8aa;
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0 0 0 6px rgba(0, 184, 169, 0.15);
+        }
+
+        .product-dot.small {
+            width: 11px;
+            height: 11px;
+            box-shadow: 0 0 0 4px rgba(0, 184, 169, 0.08);
+        }
+
+        .product-dot:nth-child(1) {
+            top: 5%;
+            right: 15%;
+        }
+
+        .product-dot:nth-child(2) {
+            top: 20%;
+            left: 12%;
+        }
+
+        .product-dot:nth-child(3) {
+            bottom: 12%;
+            right: 18%;
+        }
+
+        .product-dot:nth-child(4) {
+            bottom: 4%;
+            left: 22%;
+        }
+
+        .product-dot:nth-child(5) {
+            top: 55%;
+            left: -2%;
+        }
+
+        .product-list {
+            display: grid;
+            gap: 24px;
+        }
+
+        .product-list article h4 {
+            margin: 0 0 6px;
+            color: var(--primary);
+            font-size: 18px;
+        }
+
+        .product-list article p {
+            margin: 0;
+            color: var(--text-muted);
+        }
+
+        .stats-card {
+            margin: 80px auto 60px;
+            width: min(960px, 92vw);
+            background: linear-gradient(90deg, #0665c8, #15c3a9);
+            border-radius: 28px;
+            padding: 50px 70px;
+            color: #fff;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 32px;
+            margin-top: 38px;
+        }
+
+        .stats-grid h3 {
+            margin: 0;
+            font-size: 42px;
+        }
+
+        .stats-grid span {
+            font-size: 15px;
+            opacity: 0.85;
+            letter-spacing: 0.06em;
+        }
+
+        .timeline-wrap {
+            margin-top: 80px;
+            position: relative;
+            padding: 40px 0 10px;
+        }
+
+        .timeline-svg {
+            width: 100%;
+            height: 260px;
+        }
+
+        .timeline-nodes {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            pointer-events: none;
+        }
+
+        .timeline-node {
+            width: 33%;
+            text-align: center;
+        }
+
+        .timeline-node h4 {
+            margin: 18px 0 8px;
+            font-size: 20px;
+        }
+
+        .timeline-node p {
+            color: var(--text-muted);
+            margin: 0 auto;
+            width: clamp(220px, 80%, 280px);
+        }
+
+        .timeline-year {
+            font-size: 32px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .timeline-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            margin: 18px auto 0;
+            background: #01c3b4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        .section-dark {
+            background: #050f1f;
+            color: #e6f6ff;
+            overflow: hidden;
+        }
+
+        .section-dark .section-heading h2,
+        .section-dark p {
+            color: #e5f5ff;
+        }
+
+        /* .section-dark::before,
+        .section-dark::after,
+        body::before,
+        body::after {
+            content: '';
+            position: absolute;
+            width: 480px;
+            height: 480px;
+            background: radial-gradient(circle, rgba(0, 225, 225, 0.25), rgba(3, 18, 37, 0));
+            filter: blur(8px);
+            z-index: 0;
+        } */
+
+        body::before {
+            top: 12%;
+            left: -120px;
+        }
+
+        body::after {
+            bottom: 5%;
+            right: -140px;
+        }
+
+        .section-dark::before {
+            top: 10%;
+            left: 8%;
+            opacity: 0.15;
+        }
+
+        .section-dark::after {
+            bottom: 0;
+            right: 5%;
+            opacity: 0.2;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin: 42px 0 50px;
+        }
+
+        .pill {
+            padding: 10px 22px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .pill.active {
+            background: rgba(3, 217, 191, 0.2);
+            border-color: rgba(3, 217, 191, 0.5);
+        }
+
+        .manufacturing-panels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 34px;
+        }
+
+        .map-card {
+            background: #091d34;
+            border-radius: 26px;
+            padding: 50px 40px;
+            min-height: 320px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-card span {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 0 8px rgba(2, 190, 180, 0.18);
+        }
+
+        .map-card span:nth-child(1) {
+            top: 25%;
+            left: 30%;
+        }
+
+        .map-card span:nth-child(2) {
+            top: 40%;
+            left: 45%;
+        }
+
+        .map-card span:nth-child(3) {
+            top: 55%;
+            left: 20%;
+        }
+
+        .map-card span:nth-child(4) {
+            top: 35%;
+            right: 18%;
+        }
+
+        .map-card span:nth-child(5) {
+            top: 60%;
+            right: 26%;
+        }
+
+        .location-card {
+            background: #08344a;
+            border-radius: 26px;
+            padding: 34px;
+            display: grid;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .location-card img {
+            border-radius: 18px;
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .location-card p {
+            margin: 0;
+            color: #b5c7d7;
+        }
+
+        .sustainability-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 60px;
+            align-items: center;
+        }
+
+        .sustain-visual {
+            background: #031625;
+            border-radius: 34px;
+            padding: 0;
+            min-height: 420px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sustain-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .sustain-visual::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(160deg, rgba(3, 12, 26, 0.4), rgba(3, 25, 32, 0.85));
+        }
+
+        .image-badge {
+            position: absolute;
+            bottom: 28px;
+            left: 28px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.12);
+            color: #f0fffb;
+            font-size: 13px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .net-card {
+            border: 2px solid rgba(2, 190, 180, 0.3);
+            border-radius: 20px;
+            padding: 22px 28px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 45px rgba(13, 213, 190, 0.09);
+            background: #fbfffe;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .net-card.active {
+            transform: translateY(-4px);
+            box-shadow: 0 30px 45px rgba(1, 164, 148, 0.18);
+        }
+
+        .net-card .card-label {
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            color: #0fa4c1;
+            text-transform: uppercase;
+            margin: 0 0 8px;
+        }
+
+        .net-card a.cta-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            color: #028676;
+            margin-top: 18px;
+        }
+
+        .net-card a.cta-link svg {
+            transition: transform 0.3s ease;
+        }
+
+        .net-card a.cta-link:hover svg {
+            transform: translateX(4px);
+        }
+
+        .sustain-list {
+            border-top: 1px solid #d7e5ee;
+            padding-top: 26px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .sustain-item {
+            position: relative;
+            text-align: left;
+            border: 1px solid transparent;
+            border-radius: 18px;
+            padding: 0 22px 26px;
+            background: transparent;
+            cursor: pointer;
+            transition: border 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sustain-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 22px;
+            right: 22px;
+            bottom: 6px;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(5, 116, 124, 0), rgba(5, 116, 124, 0.35), rgba(5, 116, 124, 0));
+            border-radius: 999px;
+        }
+
+        .sustain-item .item-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 18px;
+            padding: 20px 0;
+        }
+
+        .sustain-item .tag {
+            margin: 0 0 4px;
+            font-size: 12px;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: #029b94;
+        }
+
+        .sustain-item h4 {
+            margin: 0;
+        }
+
+        .sustain-item .caret {
+            width: 12px;
+            height: 12px;
+            border-right: 2px solid #0f3a4b;
+            border-bottom: 2px solid #0f3a4b;
+            transform: rotate(45deg);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .sustain-item .item-body {
+            overflow: hidden;
+            max-height: 0;
+            padding-bottom: 0;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+        }
+
+        .sustain-item.active {
+            border-color: rgba(2, 190, 180, 0.4);
+            background: rgba(2, 190, 180, 0.08);
+            box-shadow: 0 12px 30px rgba(0, 158, 146, 0.14);
+        }
+
+        .sustain-item.active .caret {
+            transform: rotate(-135deg);
+            border-color: #01898f;
+        }
+
+        .sustain-item.active .item-body {
+            padding-bottom: 20px;
+        }
+
+        .metrics-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .metric-card {
+            flex: 1 1 220px;
+            background: linear-gradient(135deg, #00a1d1, #58e0b0);
+            border-radius: 24px;
+            padding: 30px;
+            text-align: center;
+            color: #fff;
+            font-weight: 600;
+            font-size: 32px;
+            box-shadow: 0 24px 40px rgba(6, 166, 196, 0.18);
+        }
+
+        .metric-card span {
+            display: block;
+            margin-top: 8px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .foundation-card {
+            background: #072e3f;
+            border-radius: 36px;
+            padding: 50px;
+            color: #ebfdff;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 36px;
+            align-items: center;
+        }
+
+        .foundation-logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: #3edaff;
+        }
+
+        .foundation-stats {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .foundation-stat {
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 24px;
+            padding: 20px;
+            text-align: center;
+            /* min-width: 180px; */
+        }
+
+        .foundation-stat strong {
+            display: block;
+            font-size: 36px;
+        }
+
+        .foundation-cta {
+            text-align: right;
+        }
+
+        .foundation-cta .btn {
+            background: #e8fff4;
+            color: #0a6a4f;
+            box-shadow: none;
+        }
+
+        footer {
+            position: relative;
+            background: #030f23;
+            color: #d7e0f0;
+            padding: 120px 0 60px;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            left: 0;
+            width: 100%;
+            height: 180px;
+            background: radial-gradient(120% 120% at 50% 100%, rgba(10, 30, 58, 0) 40%, rgba(5, 15, 34, 0.95) 75%);
+        }
+
+        .footer-main {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-logo {
+            font-weight: 700;
+            font-size: 22px;
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            margin: 0 0 18px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-links a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .footer-list {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0 0;
+            display: grid;
+            gap: 10px;
+        }
+
+        .footer-list li {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-list a {
+            color: inherit;
+        }
+
+        .footer-main h4 {
+            margin: 0;
+            font-size: 16px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #f1fbff;
+        }
+
+        .footer-contact p {
+            margin: 0 0 10px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .newsletter {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .newsletter .input-row {
+            display: flex;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 999px;
+            padding: 4px;
+        }
+
+        .newsletter input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            padding: 10px 16px;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .newsletter input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .newsletter button {
+            border: none;
+            background: var(--primary);
+            color: #031225;
+            font-weight: 700;
+            border-radius: 999px;
+            padding: 0 18px;
+            cursor: pointer;
+        }
+
+        .footer-bottom {
+            position: relative;
+            margin-top: 60px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 980px) {
+            .site-nav {
+                flex-direction: column;
+                gap: 20px;
+                padding: 24px 0 28px;
+            }
+
+            body.nav-fixed .site-nav {
+                width: calc(100% - 32px);
+                padding: 16px;
+                transform: translateY(6px);
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .timeline-nodes {
+                position: static;
+                flex-direction: column;
+                gap: 50px;
+                margin-top: -30px;
+            }
+
+            .timeline-node {
+                width: 100%;
+            }
+
+            .foundation-card {
+                text-align: center;
+            }
+
+            .foundation-cta {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            header {
+                min-height: 720px;
+            }
+
+            .section {
+                padding: 80px 0;
+            }
+
+            .stats-card {
+                padding: 40px 30px;
+            }
+
+            .location-card {
+                padding: 26px;
+            }
+
+            .foundation-card {
+                padding: 32px 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="hero-mask"></div>
+        <div class="hero-inner container">
+            <nav class="site-nav">
+                <div class="logo">
+                    <img src="./assets/images/ion-logo.png" alt="" srcset="">
+                </div>
+                <div class="nav-links">
+                    <a href="#products">Solutions</a>
+                    <a href="#manufacturing">Manufacturing</a>
+                    <a href="#technology">Technology</a>
+                    <a href="#global">Global Presence</a>
+                    <a href="#sustainability">Sustainability</a>
+                    <a href="#about">About Us</a>
+                </div>
+                <button class="btn">Contact Us</button>
+            </nav>
+            <div class="hero-content">
+                <h1>
+                    Empowering a <span class="highlight">Sustainable Future</span> with End-to-End <span
+                        class="highlight">Water Treatment</span> Solutions
+                </h1>
+                <p>Ion Exchange delivers innovative, sustainable water solutions for industries across the globe.</p>
+                <div class="hero-actions">
+                    <button class="btn">Discover Our Solutions</button>
+                    <button class="btn ghost">Watch Our Story</button>
+                </div>
+                <div class="scroll-hint">
+                    Scroll to explore
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="18" cy="18" r="17" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" />
+                        <path d="M12 16l6 6 6-6" stroke="rgba(255,255,255,0.8)" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="section" id="products">
+        <div class="section-heading">
+            <h2>Product <span>Offerings</span></h2>
+            <p>Comprehensive water treatment solutions tailored for every industry and application.</p>
+        </div>
+        <div class="container products-grid">
+            <div class="product-highlight">
+                <h3>SSD (Specialty &amp; Fine Chemicals)</h3>
+                <p>High-purity chemicals for pharmaceutical, biotech and electronic industries.</p>
+                <a class="link-inline" href="#">
+                    Learn more
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 4l4 4-4 4" stroke="#0a8c81" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </a>
+            </div>
+            <div class="product-visual">
+                <div class="orbit"></div>
+                <span class="product-dot"></span>
+                <span class="product-dot small"></span>
+                <span class="product-dot"></span>
+                <span class="product-dot small"></span>
+                <span class="product-dot"></span>
+            </div>
+            <div class="product-list">
+                <article>
+                    <h4>Ion Exchange Resins</h4>
+                    <p>Advanced resins for purification, demineralization, and separation processes.</p>
+                </article>
+                <article>
+                    <h4>Membranes</h4>
+                    <p>Cutting-edge membrane technologies for ultrafiltration and reverse osmosis.</p>
+                </article>
+                <article>
+                    <h4>Chemicals</h4>
+                    <p>Comprehensive range of water treatment chemicals for industrial applications.</p>
+                </article>
+                <article>
+                    <h4>Zero B Home Solutions</h4>
+                    <p>Innovative purifiers and softeners tailored for residential applications.</p>
+                </article>
+                <article>
+                    <h4>Services</h4>
+                    <p>End-to-end project execution, O&amp;M services, and technical support.</p>
+                </article>
+            </div>
+        </div>
+
+        <div class="stats-card">
+            <h3>Proven Track Record</h3>
+            <p>Numbers that speak to our experience, reach, and commitment to excellence in water solutions.</p>
+            <div class="stats-grid">
+                <div>
+                    <h3>60+</h3>
+                    <span>Years Experience</span>
+                </div>
+                <div>
+                    <h3>10,000+</h3>
+                    <span>Installations</span>
+                </div>
+                <div>
+                    <h3>7</h3>
+                    <span>Manufacturing Centres</span>
+                </div>
+                <div>
+                    <h3>1,500+</h3>
+                    <span>Service Engineers</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-heading" id="technology">
+            <h2>Legacy of <span>Technology</span></h2>
+            <p>Six decades of pioneering innovations that have shaped the water treatment industry.</p>
+        </div>
+        <div class="container timeline-wrap">
+            <svg class="timeline-svg" viewBox="0 0 1200 220" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 180C150 60 320 60 450 180C580 300 750 300 880 180C1010 60 1180 60 1180 60" stroke="#02beb4"
+                    stroke-width="6" fill="none" stroke-linecap="round" />
+            </svg>
+            <div class="timeline-nodes">
+                <div class="timeline-node">
+                    <div class="timeline-year">1964</div>
+                    <div class="timeline-icon">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 2l4 4v10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V2h4z" stroke="white" stroke-width="1.6"
+                                stroke-linejoin="round" />
+                            <path d="M8 8h4" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <h4>Foundation &amp; First Innovation</h4>
+                    <p>Pioneered India's first indigenous ion exchange resins, setting the foundation for water
+                        treatment excellence.</p>
+                </div>
+                <div class="timeline-node">
+                    <div class="timeline-year">1985</div>
+                    <div class="timeline-icon">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M11 2a6 6 0 0 1 4.8 9.6c-.6.8-.8 1.2-.8 2.4v2h-8v-2c0-1.2-.2-1.6-.8-2.4A6 6 0 0 1 11 2z"
+                                stroke="white" stroke-width="1.5" />
+                            <path d="M9 18h4" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <h4>Membrane Technology</h4>
+                    <p>Introduced advanced membrane filtration systems, revolutionizing industrial water purification.
+                    </p>
+                </div>
+                <div class="timeline-node">
+                    <div class="timeline-year">2000</div>
+                    <div class="timeline-icon">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="16" height="16" rx="3" stroke="white" stroke-width="1.5" />
+                            <path d="M8 8h6v6H8z" stroke="white" stroke-width="1.5" />
+                        </svg>
+                    </div>
+                    <h4>Zero B Consumer Launch</h4>
+                    <p>Launched the Zero B brand, bringing cutting-edge water purification to Indian households.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark" id="manufacturing">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Manufacturing <span>Excellence</span></h2>
+                <p>State-of-the-art facilities across the globe, committed to quality and sustainability.</p>
+            </div>
+            <div class="pill-row">
+                <span class="pill active">Roha, Maharashtra</span>
+                <span class="pill">Ankleshwar, Gujarat</span>
+                <span class="pill">Verna, Goa</span>
+                <span class="pill">Vashi, Maharashtra</span>
+                <span class="pill">Patancheru, Telangana</span>
+                <span class="pill">Noida, NCR</span>
+            </div>
+            <div class="manufacturing-panels">
+                <div class="map-card">
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <div class="location-card">
+                    <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a&copy;auto=format&fit=crop&w=900&q=80"
+                        alt="Manufacturing facility">
+                    <div>
+                        <h3>Roha, Maharashtra, India</h3>
+                        <p>State-of-the-art manufacturing committed to carbon neutrality. India's first Net Zero
+                            certified water treatment facility.</p>
+                        <a class="link-inline" href="#">Learn more
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 4l4 4-4 4" stroke="#52ffe6" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="sustainability">
+        <div class="section-heading">
+            <h2>Driving Sustainability with a Commitment to the <span>Environment</span></h2>
+            <p>From Net Zero operations to global community outreach, we're leading the way in sustainable water
+                treatment.</p>
+        </div>
+        <div class="container sustainability-grid">
+            <div class="sustain-visual">
+                <img id="sustain-image"
+                    src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80"
+                    alt="Sustainability highlight">
+                <div class="image-badge" id="sustain-image-label">Featured Initiative</div>
+            </div>
+            <div class="sustain-list" id="sustain-list">
+                <article class="sustain-item active"
+                    data-image="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80"
+                    data-badge="Featured Initiative">
+                    <div class="item-head">
+                        <div>
+                            <p class="tag">Featured Initiative</p>
+                            <h4>Net Zero Operations</h4>
+                        </div>
+                        <span class="caret"></span>
+                    </div>
+                    <div class="item-body">
+                        <div class="net-card">
+                            <p>Our Roha facility operates as a certified Net Zero plant, setting industry benchmarks for
+                                low-carbon manufacturing.</p>
+                            <a class="cta-link" href="#">
+                                Review certification
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 4l4 4-4 4" stroke="#0a8c81" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="sustain-item"
+                    data-image="https://images.unsplash.com/photo-1508182311256-e3f9c92fdb74?auto=format&fit=crop&w=900&q=80"
+                    data-badge="Circular Process">
+                    <div class="item-head">
+                        <div>
+                            <p class="tag">Circular Process</p>
+                            <h4>Water Recycling</h4>
+                        </div>
+                        <span class="caret"></span>
+                    </div>
+                    <div class="item-body">
+                        <div class="net-card">
+                            <p>Closed-loop systems help us recycle over 90% of process water, drastically reducing
+                                freshwater withdrawals.</p>
+                            <a class="cta-link" href="#">
+                                Explore recycling loop
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 4l4 4-4 4" stroke="#0a8c81" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="sustain-item"
+                    data-image="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?auto=format&fit=crop&w=900&q=80"
+                    data-badge="Clean Energy">
+                    <div class="item-head">
+                        <div>
+                            <p class="tag">Clean Energy</p>
+                            <h4>Renewable Energy</h4>
+                        </div>
+                        <span class="caret"></span>
+                    </div>
+                    <div class="item-body">
+                        <div class="net-card">
+                            <p>Solar and wind assets now power 60% of our energy demand, keeping operations resilient
+                                while cutting emissions.</p>
+                            <a class="cta-link" href="#">
+                                View energy mix
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 4l4 4-4 4" stroke="#0a8c81" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="sustain-item"
+                    data-image="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=900&q=80"
+                    data-badge="Community Impact">
+                    <div class="item-head">
+                        <div>
+                            <p class="tag">Community Impact</p>
+                            <h4>Ion Foundation CSR</h4>
+                        </div>
+                        <span class="caret"></span>
+                    </div>
+                    <div class="item-body">
+                        <div class="net-card">
+                            <p>Ion Foundation partners with local communities to deliver safe drinking water to 5M+
+                                people across India every year.</p>
+                            <a class="cta-link" href="#">
+                                Discover impact stories
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 4l4 4-4 4" stroke="#0a8c81" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="global">
+        <div class="section-heading">
+            <h2>Global <span>Expansion</span></h2>
+            <p>Connecting the world with cutting-edge water solutions and digital transformation.</p>
+        </div>
+        <div class="container metrics-row">
+            <div class="metric-card">
+                90%
+                <span>Water Recycled</span>
+            </div>
+            <div class="metric-card">
+                60%
+                <span>Renewable Energy</span>
+            </div>
+            <div class="metric-card">
+                0
+                <span>Net Carbon</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark" id="about">
+        <div class="container foundation-card">
+            <div>
+                <div class="foundation-logo">ION EXCHANGE<br>FOUNDATION</div>
+                <p>Through Ion Foundation, we're committed to providing clean water access to underserved communities
+                    across India.</p>
+            </div>
+            <div class="foundation-stats">
+                <div class="foundation-stat">
+                    <strong>5M+</strong>
+                    Lives Impacted
+                </div>
+                <div class="foundation-stat">
+                    <strong>500+</strong>
+                    Villages Served
+                </div>
+            </div>
+            <div class="foundation-cta">
+                <button class="btn">Learn About Our Impact</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        ION EXCHANGE
+                        <span
+                            style="display:block;font-size:12px;letter-spacing:0.4em;color:#38e7ff;margin-top:6px;">REFRESHING
+                            THE PLANET</span>
+                    </div>
+                    <p>Ion Exchange is a global leader in water treatment solutions, delivering innovative technologies
+                        and sustainable practices for over 60 years.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn">in</a>
+                        <a href="#" aria-label="Twitter">tw</a>
+                        <a href="#" aria-label="YouTube">yt</a>
+                        <a href="#" aria-label="Instagram">ig</a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul class="footer-list">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#manufacturing">Services</a></li>
+                        <li><a href="#sustainability">Sustainability</a></li>
+                        <li><a href="#global">Careers</a></li>
+                        <li><a href="mailto:info@ionexchange.co.in">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>Ion House, Dr. E. Moses Road,<br>Mahalaxmi, Mumbai - 400011, India</p>
+                    <p>+91 22 2493 8189</p>
+                    <p>info@ionexchange.co.in</p>
+                </div>
+                <div class="newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe for the latest updates on water treatment innovations.</p>
+                    <div class="input-row">
+                        <input type="email" placeholder="Enter your email">
+                        <button aria-label="Submit email">&rarr;</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2025 Ion Exchange (India) Ltd. All rights reserved.</span>
+                <span>Privacy Policy &middot; Terms of Service &middot; Cookie Policy</span>
+            </div>
+        </div>
+    </footer>
+    <script>
+        (function () {
+            const body = document.body;
+            const nav = document.querySelector('.site-nav');
+
+            const toggleNav = () => {
+                if (!nav) return;
+                const shouldStick = window.scrollY > 120;
+                body.classList.toggle('nav-fixed', shouldStick);
+            };
+
+            window.addEventListener('scroll', toggleNav, { passive: true });
+            window.addEventListener('load', toggleNav);
+
+            const sustainItems = Array.from(document.querySelectorAll('.sustain-item'));
+            const sustainImage = document.getElementById('sustain-image');
+            const sustainBadge = document.getElementById('sustain-image-label');
+
+            if (sustainItems.length && sustainImage) {
+                const openItem = (item) => {
+                    sustainItems.forEach((entry) => {
+                        const body = entry.querySelector('.item-body');
+                        const isActive = entry === item;
+                        entry.classList.toggle('active', isActive);
+                        if (body) {
+                            body.style.maxHeight = isActive ? `${body.scrollHeight}px` : '0px';
+                        }
+                    });
+
+                    const imageSrc = item.dataset.image;
+                    const badgeText = item.dataset.badge || item.querySelector('.tag')?.textContent || '';
+                    if (imageSrc) {
+                        sustainImage.src = imageSrc;
+                    }
+                    if (sustainBadge) {
+                        sustainBadge.textContent = badgeText;
+                    }
+                };
+
+                sustainItems.forEach((item) => {
+                    item.addEventListener('click', () => openItem(item));
+                });
+
+                window.addEventListener('resize', () => {
+                    const activeItem = sustainItems.find((el) => el.classList.contains('active'));
+                    if (!activeItem) return;
+                    const activeBody = activeItem.querySelector('.item-body');
+                    if (activeBody) {
+                        activeBody.style.maxHeight = `${activeBody.scrollHeight}px`;
+                    }
+                });
+
+                openItem(sustainItems.find((item) => item.classList.contains('active')) || sustainItems[0]);
+            }
+        })();
+    </script>
+</body>
+
+</html>
